@@ -19,7 +19,8 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var pickerView: CardView!
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var picker: UIDatePicker!
-
+    @IBOutlet weak var caloriaTextField: UITextField!
+    
     
     
     

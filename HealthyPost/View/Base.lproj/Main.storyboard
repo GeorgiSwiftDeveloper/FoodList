@@ -95,36 +95,46 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </view>
                                                                                 <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9ri-hQ-lpc">
-                                                                                    <rect key="frame" x="50" y="7" width="300" height="51"/>
+                                                                                    <rect key="frame" x="50" y="7" width="270" height="51"/>
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Urc-c6-dFz">
-                                                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="270" height="17"/>
                                                                                             <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="XcO-p2-GCF">
-                                                                                            <rect key="frame" x="0.0" y="17" width="300" height="17"/>
+                                                                                            <rect key="frame" x="0.0" y="17" width="270" height="17"/>
                                                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="6ZF-1V-N3h">
-                                                                                            <rect key="frame" x="0.0" y="34" width="300" height="17"/>
+                                                                                            <rect key="frame" x="0.0" y="34" width="270" height="17"/>
                                                                                             <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                     </subviews>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="300" id="7Q8-zN-8zJ"/>
+                                                                                        <constraint firstAttribute="width" constant="270" id="7Q8-zN-8zJ"/>
                                                                                     </constraints>
                                                                                 </stackView>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caloria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE3-PL-Gvf">
+                                                                                    <rect key="frame" x="287.66666666666669" y="22" width="41.333333333333314" height="21"/>
+                                                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
                                                                             </subviews>
                                                                             <constraints>
                                                                                 <constraint firstItem="9ri-hQ-lpc" firstAttribute="centerY" secondItem="Ikj-As-Wh3" secondAttribute="centerY" id="0qh-TP-fMQ"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="uE3-PL-Gvf" secondAttribute="trailing" id="4Qh-mZ-fpt"/>
                                                                                 <constraint firstItem="NxU-My-CR2" firstAttribute="top" secondItem="Ikj-As-Wh3" secondAttribute="top" constant="7" id="60S-x0-i6c"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="uE3-PL-Gvf" secondAttribute="bottom" constant="22" id="FIr-9Z-jkp"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="NxU-My-CR2" secondAttribute="bottom" constant="10" id="LRG-YW-Mxb"/>
+                                                                                <constraint firstItem="uE3-PL-Gvf" firstAttribute="leading" secondItem="9ri-hQ-lpc" secondAttribute="trailing" constant="-32.333333333333314" id="PtX-Az-zVj"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="9ri-hQ-lpc" secondAttribute="bottom" constant="7" id="UFp-Ok-Oey"/>
+                                                                                <constraint firstItem="uE3-PL-Gvf" firstAttribute="top" secondItem="Ikj-As-Wh3" secondAttribute="top" constant="22" id="cwH-nf-PZn"/>
                                                                                 <constraint firstItem="9ri-hQ-lpc" firstAttribute="top" secondItem="Ikj-As-Wh3" secondAttribute="top" constant="7" id="iHT-0y-oYE"/>
                                                                                 <constraint firstItem="NxU-My-CR2" firstAttribute="leading" secondItem="Ikj-As-Wh3" secondAttribute="leading" constant="10" id="jBR-gN-HWd"/>
                                                                                 <constraint firstItem="9ri-hQ-lpc" firstAttribute="leading" secondItem="NxU-My-CR2" secondAttribute="trailing" constant="25" id="meE-Gt-ngJ"/>
@@ -431,12 +441,12 @@
                                         <rect key="frame" x="10" y="124" width="394" height="240"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu4-8U-4Wj">
-                                                <rect key="frame" x="0.0" y="0.0" width="394" height="32.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="394" height="22"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. I like this food" textAlignment="justified" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="NLR-3P-GuS">
-                                                <rect key="frame" x="0.0" y="41.666666666666657" width="394" height="32.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="31" width="394" height="22.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -445,26 +455,39 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3v-sd-jJr">
-                                                <rect key="frame" x="0.0" y="83" width="394" height="32.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="62.333333333333343" width="394" height="22"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. Chicken" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="JVa-2T-OBe">
-                                                <rect key="frame" x="0.0" y="124.66666666666664" width="394" height="32.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="93.333333333333343" width="394" height="22.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="wpO-gR-K3U" id="8aZ-CG-RMo"/>
                                                 </connections>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caloria" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrW-lw-yLh">
+                                                <rect key="frame" x="0.0" y="124.66666666666666" width="394" height="22"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. 200 " minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Sbx-ZT-i1Y">
+                                                <rect key="frame" x="0.0" y="155.66666666666669" width="394" height="22"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="wpO-gR-K3U" id="nPu-Rm-Ki8"/>
+                                                </connections>
+                                            </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWw-de-LTf">
-                                                <rect key="frame" x="0.0" y="166" width="394" height="32.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="186.66666666666669" width="394" height="22.333333333333343"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kV8-P5-9cs">
-                                                <rect key="frame" x="0.0" y="207.66666666666669" width="394" height="32.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="218" width="394" height="22"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                                 <state key="normal" title="Time">
                                                     <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -580,6 +603,7 @@
                         <viewLayoutGuide key="safeArea" id="pUn-LU-bYF"/>
                     </view>
                     <connections>
+                        <outlet property="caloriaTextField" destination="Sbx-ZT-i1Y" id="0ZW-2V-ql4"/>
                         <outlet property="chooseTimeBtn" destination="kV8-P5-9cs" id="LX3-oS-SNc"/>
                         <outlet property="commentTextField" destination="JVa-2T-OBe" id="iYY-Eo-QNf"/>
                         <outlet property="descriptionTextField" destination="NLR-3P-GuS" id="qou-cI-ilL"/>
