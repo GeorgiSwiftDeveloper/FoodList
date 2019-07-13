@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class CreateNoteVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+class CreateNoteVC: UIViewController, UITextFieldDelegate{
    
     
 
@@ -26,7 +26,7 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, 
     
     
     
-    
+    var brandName = [String]()
     var itemArray = [HealthModel]()
     var selectedTime = Date()
     var postType: PostType? = nil
@@ -112,28 +112,48 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, 
     }
     
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
+   
 
 }
 
-extension CreateNoteVC: UISearchBarDelegate {
+extension CreateNoteVC: UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate {
+   
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let managedContext = coreDataModel.persistentContainer.viewContext
         let request: NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
-        let predicate = NSPredicate(format: "brandName CONTAINS [cd] %@", searchBar.text!)
+        let predicate = NSPredicate(format: "brandName CONTAINS[cd] %@", searchBar.text!)
         request.predicate = predicate
         let sortDescriptor = NSSortDescriptor(key: "brandName", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         do {
             itemArray = try managedContext.fetch(request)
+            for item in itemArray {
+                brandName = [item.brandName ?? ""]
+                print(brandName)
+            }
         } catch  {
             print("cant search items")
         }
+        tableViewDropDown.reloadData()
+        tableViewDropDown.isHidden = false
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return brandName.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCell(withIdentifier: "dropCell")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "dropCell")
+        }
+        cell?.textLabel?.text = brandName[indexPath.row]
+        return cell!
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
 }

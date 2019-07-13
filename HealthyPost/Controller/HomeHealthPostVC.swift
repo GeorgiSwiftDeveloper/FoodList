@@ -11,7 +11,7 @@ import CoreData
 import FSCalendar
 import Charts
 
-let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSource, ChartViewDelegate {
     
@@ -37,7 +37,6 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func  viewWillAppear(_ animated: Bool) {
         super .viewWillAppear(true)
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         if let data = UserDefaults.standard.object(forKey: "image")  {
             userImage.image = UIImage(data: data as! Data)
         }
