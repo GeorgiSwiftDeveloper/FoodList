@@ -566,6 +566,27 @@
                                         <color key="barTintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
+                                    <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M0m-2Q-eTy">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="128"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="ohd-pR-jQV"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dropCell" id="Fvy-Uh-qqn">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fvy-Uh-qqn" id="AT5-b7-p6S">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="wpO-gR-K3U" id="NYc-eJ-LeD"/>
+                                            <outlet property="delegate" destination="wpO-gR-K3U" id="SFE-Ts-Ajk"/>
+                                        </connections>
+                                    </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMz-ap-3Sq">
                                         <rect key="frame" x="140.33333333333331" y="114.00000000000001" width="133.33333333333331" height="34.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
@@ -581,15 +602,18 @@
                                     <constraint firstItem="ZG9-mB-HDr" firstAttribute="top" secondItem="QLh-1T-tMi" secondAttribute="bottom" constant="10" id="4lN-Cs-nxc"/>
                                     <constraint firstItem="aU6-Uy-0zA" firstAttribute="top" secondItem="TZX-o1-83t" secondAttribute="bottom" constant="30" id="66y-bF-gqo"/>
                                     <constraint firstAttribute="bottom" secondItem="2ue-gf-6lF" secondAttribute="bottom" id="GKh-6a-31O"/>
+                                    <constraint firstItem="M0m-2Q-eTy" firstAttribute="top" secondItem="TZX-o1-83t" secondAttribute="bottom" id="HGt-iJ-QTE"/>
                                     <constraint firstItem="eMz-ap-3Sq" firstAttribute="centerX" secondItem="bYN-ww-VcX" secondAttribute="centerX" id="Kcv-Hs-SpG"/>
                                     <constraint firstAttribute="trailing" secondItem="QLh-1T-tMi" secondAttribute="trailing" constant="10" id="Oad-cF-Px7"/>
                                     <constraint firstItem="eMz-ap-3Sq" firstAttribute="top" secondItem="TZX-o1-83t" secondAttribute="bottom" constant="30" id="XJW-Gg-gLT"/>
                                     <constraint firstItem="aU6-Uy-0zA" firstAttribute="leading" secondItem="bYN-ww-VcX" secondAttribute="leading" constant="10" id="Y3Z-b3-5RU"/>
                                     <constraint firstItem="2ue-gf-6lF" firstAttribute="leading" secondItem="bYN-ww-VcX" secondAttribute="leading" id="YP1-nn-Rs3"/>
                                     <constraint firstAttribute="trailing" secondItem="2ue-gf-6lF" secondAttribute="trailing" id="gMs-Vd-uAf"/>
+                                    <constraint firstItem="M0m-2Q-eTy" firstAttribute="centerX" secondItem="TZX-o1-83t" secondAttribute="centerX" id="iGC-kZ-x91"/>
                                     <constraint firstItem="TZX-o1-83t" firstAttribute="top" secondItem="bYN-ww-VcX" secondAttribute="top" constant="40" id="mbl-05-3Nj"/>
                                     <constraint firstItem="TZX-o1-83t" firstAttribute="leading" secondItem="bYN-ww-VcX" secondAttribute="leading" id="n2g-Sm-OAG"/>
                                     <constraint firstItem="2ue-gf-6lF" firstAttribute="centerX" secondItem="bYN-ww-VcX" secondAttribute="centerX" id="pNQ-fS-Z2F"/>
+                                    <constraint firstItem="M0m-2Q-eTy" firstAttribute="width" secondItem="TZX-o1-83t" secondAttribute="width" id="qme-e6-d1Q"/>
                                     <constraint firstItem="QLh-1T-tMi" firstAttribute="top" secondItem="aU6-Uy-0zA" secondAttribute="bottom" constant="40" id="wpg-aX-l1L"/>
                                     <constraint firstItem="QLh-1T-tMi" firstAttribute="leading" secondItem="bYN-ww-VcX" secondAttribute="leading" constant="10" id="xYY-Mx-rXd"/>
                                 </constraints>
@@ -613,6 +637,7 @@
                         <outlet property="picker" destination="OCt-Nq-fut" id="R0W-Qa-e14"/>
                         <outlet property="pickerView" destination="2ue-gf-6lF" id="mMZ-Br-Nlp"/>
                         <outlet property="selectPostType" destination="vsG-hF-Tmd" id="4pW-0K-4DV"/>
+                        <outlet property="tableViewDropDown" destination="M0m-2Q-eTy" id="ovN-T9-sd2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Us-Yf-VNo" userLabel="First Responder" sceneMemberID="firstResponder"/>

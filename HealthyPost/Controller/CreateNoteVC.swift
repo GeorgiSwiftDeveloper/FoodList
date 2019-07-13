@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 
-class CreateNoteVC: UIViewController, UITextFieldDelegate{
+class CreateNoteVC: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource{
+   
+    
 
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
@@ -20,11 +22,12 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var caloriaTextField: UITextField!
+    @IBOutlet weak var tableViewDropDown: UITableView!
     
     
     
     
-    
+    var itemArray = [HealthModel]()
     var selectedTime = Date()
     var postType: PostType? = nil
     var coreDataModel = CoreDataStackClass()
@@ -41,7 +44,6 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: Date()))", for: .normal)
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: selectedTime ))", for: .normal)
         picker.date = selectedTime
-        
     }
   
     @objc func mainViewGesture(_ sender: UIGestureRecognizer){
@@ -108,11 +110,30 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
             print("Can not save note \(error)")
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
 
 }
 
 extension CreateNoteVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+        let managedContext = coreDataModel.persistentContainer.viewContext
+        let request: NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
+        let predicate = NSPredicate(format: "brandName CONTAINS [cd] %@", searchBar.text!)
+        request.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "brandName", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        do {
+            itemArray = try managedContext.fetch(request)
+        } catch  {
+            print("cant search items")
+        }
     }
 }

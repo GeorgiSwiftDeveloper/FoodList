@@ -20,6 +20,7 @@
 		6A338B9E22A2FB28009E958F /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A338B9D22A2FB28009E958F /* CoreDataModel.swift */; };
 		6A338B9F22A2FB28009E958F /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A338B9D22A2FB28009E958F /* CoreDataModel.swift */; };
 		6A338BA022A2FD8C009E958F /* DateSarvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEF822442A5800DF295B /* DateSarvice.swift */; };
+		6A44D9B822D99EA50093B4DF /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A44D9B722D99EA50093B4DF /* DropDownTableViewCell.swift */; };
 		6A5522CB2264F4120096D100 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5522CA2264F4120096D100 /* CardView.swift */; };
 		6A61E87A22AC2AD9003CA33E /* ButtonRoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E87922AC2AD9003CA33E /* ButtonRoundService.swift */; };
 		6A61E88022AC59BC003CA33E /* CircleSelectedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E87F22AC59BC003CA33E /* CircleSelectedType.swift */; };
@@ -84,6 +85,7 @@
 		6A1824D022ADE8E100A485DD /* EditPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditPostVC.swift; path = ../../EditPostVC.swift; sourceTree = "<group>"; };
 		6A1824D222AE50B000A485DD /* TextFieldPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholder.swift; sourceTree = "<group>"; };
 		6A338B9D22A2FB28009E958F /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
+		6A44D9B722D99EA50093B4DF /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		6A5522CA2264F4120096D100 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6A61E87922AC2AD9003CA33E /* ButtonRoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRoundService.swift; sourceTree = "<group>"; };
 		6A61E87F22AC59BC003CA33E /* CircleSelectedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSelectedType.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				6A95FE6A2223709500ED1A94 /* NoteTableViewCell.swift */,
 				6A80C8162255DC5C0044D04A /* CalendareTableViewCell.swift */,
 				6A1824CC22ADE51300A485DD /* SettingsCell.swift */,
+				6A44D9B722D99EA50093B4DF /* DropDownTableViewCell.swift */,
 				6AFF58242226300100DE7FE6 /* PostType.swift */,
 				6A95FE5322235DCD00ED1A94 /* Main.storyboard */,
 				6A95FE5622235DCF00ED1A94 /* Assets.xcassets */,
@@ -472,6 +475,7 @@
 				6A1824D322AE50B000A485DD /* TextFieldPlaceholder.swift in Sources */,
 				6A95FE5022235DCD00ED1A94 /* HomeHealthPostVC.swift in Sources */,
 				6AFF58252226300100DE7FE6 /* PostType.swift in Sources */,
+				6A44D9B822D99EA50093B4DF /* DropDownTableViewCell.swift in Sources */,
 				6A1824CF22ADE73600A485DD /* DesignSettingsCell.swift in Sources */,
 				6AAE7A5C228FA24400918655 /* ChooseFontVC.swift in Sources */,
 				6A95FE6B2223709500ED1A94 /* NoteTableViewCell.swift in Sources */,
