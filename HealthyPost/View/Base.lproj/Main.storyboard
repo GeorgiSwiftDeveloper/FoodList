@@ -119,7 +119,7 @@
                                                                                         <constraint firstAttribute="width" constant="270" id="7Q8-zN-8zJ"/>
                                                                                     </constraints>
                                                                                 </stackView>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caloria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE3-PL-Gvf">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calorie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uE3-PL-Gvf">
                                                                                     <rect key="frame" x="287.66666666666669" y="22" width="41.333333333333314" height="21"/>
                                                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                                                     <nil key="textColor"/>
@@ -178,6 +178,7 @@
                                                                 </tableViewCellContentView>
                                                                 <connections>
                                                                     <outlet property="brandNameLbl" destination="Urc-c6-dFz" id="Kng-sd-xgC"/>
+                                                                    <outlet property="calorieLbl" destination="uE3-PL-Gvf" id="miY-7s-g8r"/>
                                                                     <outlet property="descriptionLbl" destination="XcO-p2-GCF" id="vt3-M7-Wqv"/>
                                                                     <outlet property="postDate" destination="6ZF-1V-N3h" id="euH-3Z-C2A"/>
                                                                     <outlet property="selectedFoodType" destination="NxU-My-CR2" id="1uD-u5-E1X"/>
@@ -475,9 +476,9 @@
                                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ex. 200 " minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Sbx-ZT-i1Y">
                                                 <rect key="frame" x="0.0" y="155.66666666666669" width="394" height="22"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="wpO-gR-K3U" id="nPu-Rm-Ki8"/>
+                                                    <outlet property="delegate" destination="wpO-gR-K3U" id="IFG-He-PLA"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWw-de-LTf">
@@ -630,7 +631,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-tm-Ape">
-                                        <rect key="frame" x="10" y="139" width="394" height="234"/>
+                                        <rect key="frame" x="10" y="134.66666666666666" width="394" height="233.99999999999997"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0h-Si-Oq8">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="23"/>
@@ -659,13 +660,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKK-ng-lTC">
-                                                <rect key="frame" x="0.0" y="166" width="394" height="23"/>
+                                                <rect key="frame" x="0.0" y="166.00000000000003" width="394" height="23"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJe-e2-Oyi">
-                                                <rect key="frame" x="0.0" y="204" width="394" height="30"/>
+                                                <rect key="frame" x="0.0" y="204.00000000000003" width="394" height="30"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                                 <state key="normal" title="Time">
                                                     <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -677,7 +678,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="kUT-fq-Qct">
-                                        <rect key="frame" x="121" y="381" width="172" height="198"/>
+                                        <rect key="frame" x="121" y="376.66666666666669" width="172" height="198.00000000000006"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Is it healthy ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aan-em-eyW">
                                                 <rect key="frame" x="0.0" y="0.0" width="172" height="23"/>
@@ -697,7 +698,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3x-Hf-NfZ" customClass="ButtonUIService" customModule="HealthyPost" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="161" width="172" height="37"/>
+                                                <rect key="frame" x="0.0" y="160.99999999999994" width="172" height="37"/>
                                                 <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="0.71383723160000001" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="21"/>
                                                 <state key="normal" title="Save">
@@ -709,15 +710,6 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ez-Zm-PFZ">
-                                        <rect key="frame" x="99.999999999999986" y="70" width="131.66666666666663" height="39"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="39" id="EOE-H9-gnP"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
-                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ks3-Ur-3dZ">
                                         <rect key="frame" x="28" y="533" width="358" height="203"/>
                                         <constraints>
@@ -737,22 +729,30 @@
                                             <action selector="dissmissBtn:" destination="jO7-CZ-Rdv" eventType="touchUpInside" id="lME-RM-Xdo"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ez-Zm-PFZ">
+                                        <rect key="frame" x="141" y="74" width="132" height="34.666666666666657"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="131.66999999999999" id="1S9-Tm-Plr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Ks3-Ur-3dZ" secondAttribute="trailing" constant="28" id="6P5-FB-uac"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0Ez-Zm-PFZ" secondAttribute="trailing" symbolic="YES" id="EmM-KV-9by"/>
+                                    <constraint firstItem="Rtq-tm-Ape" firstAttribute="top" secondItem="0Ez-Zm-PFZ" secondAttribute="bottom" constant="26" id="913-gR-CBa"/>
                                     <constraint firstItem="Ks3-Ur-3dZ" firstAttribute="leading" secondItem="8xa-Dr-BoP" secondAttribute="leading" constant="28" id="H5u-Pm-Ycx"/>
                                     <constraint firstItem="H4i-lh-TTJ" firstAttribute="top" secondItem="8xa-Dr-BoP" secondAttribute="top" constant="40" id="J23-1v-wUc"/>
+                                    <constraint firstItem="0Ez-Zm-PFZ" firstAttribute="top" secondItem="8xa-Dr-BoP" secondAttribute="top" constant="74" id="J4a-Z8-d9Q"/>
+                                    <constraint firstItem="0Ez-Zm-PFZ" firstAttribute="centerX" secondItem="8xa-Dr-BoP" secondAttribute="centerX" id="JoC-UZ-sGx"/>
                                     <constraint firstItem="kUT-fq-Qct" firstAttribute="centerX" secondItem="Rtq-tm-Ape" secondAttribute="centerX" id="YMN-wR-JFR"/>
                                     <constraint firstItem="H4i-lh-TTJ" firstAttribute="leading" secondItem="8xa-Dr-BoP" secondAttribute="leading" constant="15" id="Z18-21-xge"/>
                                     <constraint firstItem="kUT-fq-Qct" firstAttribute="top" secondItem="Rtq-tm-Ape" secondAttribute="bottom" constant="8" id="aIG-0f-CHK"/>
-                                    <constraint firstItem="0Ez-Zm-PFZ" firstAttribute="top" secondItem="8xa-Dr-BoP" secondAttribute="top" constant="70" id="i3E-Xf-ZUP"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="H4i-lh-TTJ" secondAttribute="trailing" constant="20" symbolic="YES" id="i78-wf-ULr"/>
                                     <constraint firstAttribute="trailing" secondItem="Rtq-tm-Ape" secondAttribute="trailing" constant="10" id="iph-Sx-Bmx"/>
                                     <constraint firstAttribute="bottom" secondItem="Ks3-Ur-3dZ" secondAttribute="bottom" id="jKP-mP-bdW"/>
-                                    <constraint firstItem="Rtq-tm-Ape" firstAttribute="top" secondItem="0Ez-Zm-PFZ" secondAttribute="bottom" constant="30" id="kku-Gy-Nu6"/>
-                                    <constraint firstItem="0Ez-Zm-PFZ" firstAttribute="leading" secondItem="8xa-Dr-BoP" secondAttribute="leading" constant="100" id="nnM-QS-OIR"/>
                                     <constraint firstItem="Rtq-tm-Ape" firstAttribute="leading" secondItem="8xa-Dr-BoP" secondAttribute="leading" constant="10" id="pN8-8H-fcd"/>
                                     <constraint firstItem="kUT-fq-Qct" firstAttribute="leading" secondItem="8xa-Dr-BoP" secondAttribute="leading" constant="121" id="qgc-QE-INM"/>
                                 </constraints>

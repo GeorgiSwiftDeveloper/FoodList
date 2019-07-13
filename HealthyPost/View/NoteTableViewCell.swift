@@ -15,10 +15,17 @@ class NoteTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var selectedFoodType: UIView!
     @IBOutlet weak var postDate: UILabel!
+    @IBOutlet weak var calorieLbl: UILabel!
     
     func configureCell(post: HealthModel) {
         brandNameLbl.text = post.brandName
         descriptionLbl.text = post.userComment
+        if post.calorie == nil {
+            calorieLbl.text = ""
+        }else{
+             calorieLbl.text = "\(post.calorie ?? "") calorie"
+        }
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.dateFormat = "MMM-dd HH:mm"

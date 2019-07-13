@@ -101,6 +101,7 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
         item.setValue(descriptionTextField.text, forKey: "brandName")
         item.setValue(commentTextField.text, forKey: "userComment")
         item.setValue(postType?.rawValue, forKey: "selectedType")
+        item.setValue(caloriaTextField.text, forKey: "calorie")
         do {
             try managedContext.save()
         }catch {

@@ -299,11 +299,12 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         do {
             healthModelData = try managedContext.fetch(request)
             for item in healthModelData {
-                print("\(item.brandName)aaaaaaaa")
                 item.value(forKey: "userComment")
                 item.value(forKey: "postTime")
                 item.value(forKey: "selectedType")
                 item.value(forKey: "brandName")
+                item.value(forKey: "calorie")
+                
             }
         } catch let error as NSError {
             print(error.description)
