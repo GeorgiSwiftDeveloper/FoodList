@@ -14,11 +14,16 @@ class CalendareTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var commentLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
-    
+    @IBOutlet weak var calorieLbl: UILabel!
     
     func configureCell(post: HealthModel) {
         descriptionLbl.text = post.brandName
         commentLbl.text = post.userComment
+        if post.calorie == nil {
+            calorieLbl.text = ""
+        }else{
+            calorieLbl.text = "\(post.calorie ?? "") calorie"
+        }
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.dateFormat = "MMM-dd HH:mm"

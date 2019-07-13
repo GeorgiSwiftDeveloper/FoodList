@@ -172,7 +172,7 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
                 item.value(forKey: "postTime")
                 item.value(forKey: "selectedType")
                 item.value(forKey: "brandName")
-                
+                item.value(forKey: "calorie")
             }
             
         } catch let error as NSError {

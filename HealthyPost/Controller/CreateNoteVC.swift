@@ -110,3 +110,9 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
     }
 
 }
+
+extension CreateNoteVC: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+}
