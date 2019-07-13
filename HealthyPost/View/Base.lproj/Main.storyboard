@@ -439,7 +439,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="QLh-1T-tMi">
-                                        <rect key="frame" x="10" y="214" width="394" height="303"/>
+                                        <rect key="frame" x="10" y="234" width="394" height="303"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cu4-8U-4Wj">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
@@ -503,7 +503,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="ZG9-mB-HDr">
-                                        <rect key="frame" x="141" y="527" width="133.66666666666663" height="195"/>
+                                        <rect key="frame" x="141" y="547" width="133.66666666666663" height="195"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Is it healthy ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWm-ZH-GtN">
                                                 <rect key="frame" x="0.0" y="0.0" width="133.66666666666666" height="23"/>
@@ -552,7 +552,7 @@
                                         </constraints>
                                     </view>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TZX-o1-83t">
-                                        <rect key="frame" x="0.0" y="70" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="90" width="414" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="d82-mi-C6M"/>
                                         </constraints>
@@ -563,20 +563,20 @@
                                         </connections>
                                     </searchBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMz-ap-3Sq">
-                                        <rect key="frame" x="140.33333333333331" y="29.999999999999996" width="133.33333333333331" height="34.666666666666657"/>
+                                        <rect key="frame" x="140.33333333333331" y="45" width="133.33333333333331" height="34.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
                                         <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aU6-Uy-0zA">
-                                        <rect key="frame" x="10" y="30" width="38" height="30"/>
+                                        <rect key="frame" x="10" y="45" width="38" height="30"/>
                                         <state key="normal" title="Button" image="backImage"/>
                                         <connections>
                                             <action selector="dissmissBtn:" destination="wpO-gR-K3U" eventType="touchUpInside" id="g15-Im-a94"/>
                                         </connections>
                                     </button>
                                     <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M0m-2Q-eTy">
-                                        <rect key="frame" x="0.0" y="114" width="414" height="92"/>
+                                        <rect key="frame" x="0.0" y="134" width="414" height="92"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="92" id="hPW-uK-LVQ"/>
@@ -605,7 +605,7 @@
                                     <constraint firstItem="M0m-2Q-eTy" firstAttribute="width" secondItem="TZX-o1-83t" secondAttribute="width" id="4Wy-gg-fDm"/>
                                     <constraint firstItem="ZG9-mB-HDr" firstAttribute="top" secondItem="QLh-1T-tMi" secondAttribute="bottom" constant="10" id="4lN-Cs-nxc"/>
                                     <constraint firstAttribute="bottom" secondItem="2ue-gf-6lF" secondAttribute="bottom" id="GKh-6a-31O"/>
-                                    <constraint firstItem="eMz-ap-3Sq" firstAttribute="top" secondItem="bYN-ww-VcX" secondAttribute="top" constant="30" id="GZv-vq-ahD"/>
+                                    <constraint firstItem="eMz-ap-3Sq" firstAttribute="top" secondItem="bYN-ww-VcX" secondAttribute="top" constant="45" id="GZv-vq-ahD"/>
                                     <constraint firstItem="eMz-ap-3Sq" firstAttribute="leading" secondItem="aU6-Uy-0zA" secondAttribute="trailing" constant="92.333333333333314" id="HYh-jS-S5S"/>
                                     <constraint firstItem="M0m-2Q-eTy" firstAttribute="centerX" secondItem="TZX-o1-83t" secondAttribute="centerX" id="LIM-E9-hVg"/>
                                     <constraint firstAttribute="trailing" secondItem="QLh-1T-tMi" secondAttribute="trailing" constant="10" id="Oad-cF-Px7"/>
@@ -613,9 +613,9 @@
                                     <constraint firstItem="eMz-ap-3Sq" firstAttribute="centerX" secondItem="bYN-ww-VcX" secondAttribute="centerX" id="TvU-dS-7kJ"/>
                                     <constraint firstItem="2ue-gf-6lF" firstAttribute="leading" secondItem="bYN-ww-VcX" secondAttribute="leading" id="YP1-nn-Rs3"/>
                                     <constraint firstAttribute="trailing" secondItem="2ue-gf-6lF" secondAttribute="trailing" id="gMs-Vd-uAf"/>
-                                    <constraint firstItem="aU6-Uy-0zA" firstAttribute="top" secondItem="bYN-ww-VcX" secondAttribute="top" constant="30" id="h9c-vh-XLI"/>
+                                    <constraint firstItem="aU6-Uy-0zA" firstAttribute="top" secondItem="bYN-ww-VcX" secondAttribute="top" constant="45" id="h9c-vh-XLI"/>
                                     <constraint firstItem="QLh-1T-tMi" firstAttribute="top" secondItem="TZX-o1-83t" secondAttribute="bottom" constant="100" id="lhK-eo-nQC"/>
-                                    <constraint firstItem="TZX-o1-83t" firstAttribute="top" secondItem="bYN-ww-VcX" secondAttribute="top" constant="70" id="mbl-05-3Nj"/>
+                                    <constraint firstItem="TZX-o1-83t" firstAttribute="top" secondItem="bYN-ww-VcX" secondAttribute="top" constant="90" id="mbl-05-3Nj"/>
                                     <constraint firstItem="TZX-o1-83t" firstAttribute="leading" secondItem="bYN-ww-VcX" secondAttribute="leading" id="n2g-Sm-OAG"/>
                                     <constraint firstItem="2ue-gf-6lF" firstAttribute="centerX" secondItem="bYN-ww-VcX" secondAttribute="centerX" id="pNQ-fS-Z2F"/>
                                     <constraint firstItem="QLh-1T-tMi" firstAttribute="leading" secondItem="bYN-ww-VcX" secondAttribute="leading" constant="10" id="xYY-Mx-rXd"/>
@@ -875,7 +875,7 @@
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
-                                                                        <stackView opaque="NO" contentMode="scaleAspectFit" misplaced="YES" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="grz-8U-2Ck">
+                                                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="grz-8U-2Ck">
                                                                             <rect key="frame" x="28" y="0.0" width="250" height="55"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="HWm-kv-5rc">

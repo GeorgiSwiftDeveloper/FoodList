@@ -23,6 +23,7 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var caloriaTextField: UITextField!
     @IBOutlet weak var tableViewDropDown: UITableView!
+
     
     
     
@@ -44,6 +45,13 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: Date()))", for: .normal)
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: selectedTime ))", for: .normal)
         picker.date = selectedTime
+        let dissmisKeyBoard = UITapGestureRecognizer(target: self, action: #selector(dismissKey))
+        mainView.addGestureRecognizer(dissmisKeyBoard)
+        loadItems()
+    }
+    
+   @objc func dismissKey() {
+        view.endEditing(true)
     }
   
     @objc func mainViewGesture(_ sender: UIGestureRecognizer){
@@ -111,20 +119,8 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
         }
     }
     
-    
-   
-
-}
-
-extension CreateNoteVC: UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate {
-   
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let managedContext = coreDataModel.persistentContainer.viewContext
-        let request: NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
-        let predicate = NSPredicate(format: "brandName CONTAINS[cd] %@", searchBar.text!)
-        request.predicate = predicate
-        let sortDescriptor = NSSortDescriptor(key: "brandName", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
+    func loadItems(with request: NSFetchRequest<HealthModel> = HealthModel.fetchRequest()) {
+           let managedContext = coreDataModel.persistentContainer.viewContext
         do {
             itemArray = try managedContext.fetch(request)
             for item in itemArray {
@@ -132,10 +128,30 @@ extension CreateNoteVC: UISearchBarDelegate, UITableViewDataSource,UITableViewDe
                 print(brandName)
             }
         } catch  {
-            print("cant search items")
+             print("cant fetch items")
         }
+    }
+
+}
+
+extension CreateNoteVC: UISearchBarDelegate, UITableViewDataSource,UITableViewDelegate {
+   
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let request: NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
+        request.predicate = NSPredicate(format: "brandName CONTAINS[cd] %@", searchBar.text!)
+        request.sortDescriptors = [NSSortDescriptor(key: "brandName", ascending: true)]
+        loadItems(with: request)
         tableViewDropDown.reloadData()
         tableViewDropDown.isHidden = false
+    }
+ 
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadItems()
+            tableViewDropDown.isHidden = true
+            searchBar.resignFirstResponder()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -154,6 +170,9 @@ extension CreateNoteVC: UISearchBarDelegate, UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
+    
     
     
 }
