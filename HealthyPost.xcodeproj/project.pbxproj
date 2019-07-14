@@ -216,8 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				6A95FE4F22235DCD00ED1A94 /* HomeHealthPostVC.swift */,
-				6AA3DD832271470E009BFE94 /* CalendarVC.swift */,
 				6AFF58222225CBEE00DE7FE6 /* CreateNoteVC.swift */,
+				6AA3DD832271470E009BFE94 /* CalendarVC.swift */,
 				6AAE7A5B228FA24400918655 /* ChooseFontVC.swift */,
 				6A1824D022ADE8E100A485DD /* EditPostVC.swift */,
 				6A1824C622ADE3DC00A485DD /* SettingsVC.swift */,

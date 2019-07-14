@@ -23,8 +23,6 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     @IBOutlet weak var cardViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var cardView: CardView!
     @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var goodScoreLbl: UILabel!
-    @IBOutlet weak var badScoreLbl: UILabel!
     @IBOutlet weak var userNameLbl: UILabel!
     
     
@@ -238,19 +236,19 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                     }
                 }
             }
-            if goodArray.count < 1 {
-                goodScoreLbl.isHidden = true
-            }else{
-                goodScoreLbl.text = "\(goodArray.count)"
-                goodScoreLbl.isHidden = false
-            }
-            
-            if badArray.count < 1 {
-                badScoreLbl.isHidden = true
-            }else{
-                badScoreLbl.text = "\(badArray.count)"
-                badScoreLbl.isHidden = false
-            }
+//            if goodArray.count < 1 {
+//                goodScoreLbl.isHidden = true
+//            }else{
+//                goodScoreLbl.text = "\(goodArray.count)"
+//                goodScoreLbl.isHidden = false
+//            }
+//            
+//            if badArray.count < 1 {
+//                badScoreLbl.isHidden = true
+//            }else{
+//                badScoreLbl.text = "\(badArray.count)"
+//                badScoreLbl.isHidden = false
+//            }
 
         
             let red = ColorSelection.colorPicker.badType

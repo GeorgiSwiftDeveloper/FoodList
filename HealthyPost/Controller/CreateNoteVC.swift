@@ -23,7 +23,9 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var caloriaTextField: UITextField!
     @IBOutlet weak var tableViewDropDown: UITableView!
-
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     
     
     
@@ -45,18 +47,33 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: Date()))", for: .normal)
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: selectedTime ))", for: .normal)
         picker.date = selectedTime
-        let dissmisKeyBoard = UITapGestureRecognizer(target: self, action: #selector(dismissKey))
-        mainView.addGestureRecognizer(dissmisKeyBoard)
+        
         loadItems()
+        searchBarUIDesign()
+        
+        
     }
-    
-   @objc func dismissKey() {
-        view.endEditing(true)
-    }
+
   
+    
+    func searchBarUIDesign() {
+        searchBar.layer.cornerRadius = 15
+        searchBar.clipsToBounds = true
+        searchBar.layer.borderColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        searchBar.layer.borderWidth = 1
+        // TextField Color Customization
+        let textFieldInsideSearchBar =  searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        // Glass Icon Customization
+        let glassIconView = textFieldInsideSearchBar?.leftView as? UIImageView
+        glassIconView?.image = glassIconView?.image?.withRenderingMode(.alwaysTemplate)
+        glassIconView?.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+
     @objc func mainViewGesture(_ sender: UIGestureRecognizer){
         pickerView.isHidden = true
         picker.isHidden = true
+        view.endEditing(true)
     }
     
     
@@ -125,7 +142,6 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
             itemArray = try managedContext.fetch(request)
             for item in itemArray {
                 brandName = [item.brandName ?? ""]
-                print(brandName)
             }
         } catch  {
              print("cant fetch items")
@@ -149,29 +165,47 @@ extension CreateNoteVC: UISearchBarDelegate, UITableViewDataSource,UITableViewDe
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadItems()
+            tableViewDropDown.reloadData()
             tableViewDropDown.isHidden = true
             searchBar.resignFirstResponder()
         }
     }
     
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let ofSetY =  scrollView.contentOffset.y
+//        let contentHeight = scrollView.contentSize.height
+//        if ofSetY > contentHeight - scrollView.frame.height {
+//            let request: NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
+//            request.predicate = NSPredicate(format: "brandName CONTAINS[cd] %@", searchBar.text!)
+//            request.sortDescriptors = [NSSortDescriptor(key: "brandName", ascending: true)]
+//            DispatchQueue.main.asyncAfter(deadline: .now()) {
+//                self.loadItems(with: request)
+//                self.tableViewDropDown.reloadData()
+//            }
+//
+//        }
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return brandName.count
+        return itemArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "dropCell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "dropCell")
-        }
-        cell?.textLabel?.text = brandName[indexPath.row]
-        return cell!
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "dropCell", for: indexPath) as? DropDownTableViewCell else {return UITableViewCell()}
+        cell.textLabel?.text = itemArray[indexPath.row].brandName
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if  let cell = tableView.cellForRow(at: indexPath) as? DropDownTableViewCell {
+            print("You selected cell number: \(indexPath.row)text is \(cell.textLabel?.text)")
+            self.descriptionTextField.text = cell.textLabel?.text
+            tableView.isHidden = true
+            searchBar.text? = ""
+        }
+        
     }
-    
-    
     
     
     
