@@ -238,8 +238,8 @@
 				6AAE7A5B228FA24400918655 /* ChooseFontVC.swift */,
 				6A1824D022ADE8E100A485DD /* EditPostVC.swift */,
 				6A1824C622ADE3DC00A485DD /* SettingsVC.swift */,
-				6A237D9D22DCA1EF006291F2 /* ProfileSettingsVC.swift */,
 				6A39094122DC6D2D00D85ADC /* SettignsMenuVC.swift */,
+				6A237D9D22DCA1EF006291F2 /* ProfileSettingsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

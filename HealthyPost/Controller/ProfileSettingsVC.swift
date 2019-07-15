@@ -8,17 +8,55 @@
 
 import UIKit
 
-class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate {
 
 
     @IBOutlet weak var userAddImage: UIImageView!
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var useDBTextField: UITextField!
+    @IBOutlet weak var userLocationTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        if let data = UserDefaults.standard.object(forKey: "image")  {
+            userAddImage.image = UIImage(data: data as! Data)
+        }
+        
+       
          let imageTapp = UITapGestureRecognizer(target: self, action: #selector(userImageTapped))
          self.userAddImage.addGestureRecognizer(imageTapp)
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        UserDefaults.standard.set(userNameTextField.text, forKey: "userName")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        UserDefaults.standard.set(userNameTextField.text, forKey: "userName")
+        return true
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= 230
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    
+
     
     @objc func userImageTapped(_ sender: UIGestureRecognizer){
         let imagepickerController = UIImagePickerController()

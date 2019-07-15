@@ -18,13 +18,27 @@ class SettignsMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
      @IBOutlet weak var homeMenuTableView: UITableView!
      @IBOutlet weak var userSettingsBtn: UIButton!
+     @IBOutlet weak var userProfileImage: UIImageView!
+     @IBOutlet weak var userNameLbl: UILabel!
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let data = UserDefaults.standard.object(forKey: "image")  {
+            userProfileImage.image = UIImage(data: data as! Data)
+        }
+        if let userName = UserDefaults.standard.object(forKey: "userName")  {
+            userNameLbl.text = userName as? String
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
 
-      
     }
+    
+
     
     
     
