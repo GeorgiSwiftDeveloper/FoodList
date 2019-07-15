@@ -193,6 +193,7 @@ extension CreateNoteVC: UISearchBarDelegate, UITableViewDataSource,UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "dropCell", for: indexPath) as? DropDownTableViewCell else {return UITableViewCell()}
         cell.textLabel?.text = itemArray[indexPath.row].brandName
+        
         return cell
     }
     

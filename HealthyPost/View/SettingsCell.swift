@@ -12,6 +12,4 @@ class SettingsCell: UITableViewCell {
 
     @IBOutlet weak var settingsLbl: UILabel!
     @IBOutlet weak var settingsImage: UIImageView!
-
-
 }
