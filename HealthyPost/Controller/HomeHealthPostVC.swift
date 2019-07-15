@@ -46,7 +46,7 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         updateDataByWeek()
         notePostTableView.reloadData()
         currentDateLabel.text = "\(DateService.service.crrentDateTime())"
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
             self.view.layoutIfNeeded()
         }
@@ -55,10 +55,9 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override  func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
             self.view.layoutIfNeeded()
-            
         }
     }
     
@@ -82,7 +81,7 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
         //Xaxis Label
         let xAxis: XAxis? = chartView.xAxis
         xAxis?.labelPosition = .top
-        xAxis?.labelTextColor = .black
+        xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
         xAxis?.labelFont = UIFont(name: "Helvetica", size: 12)!
         xAxis?.drawGridLinesEnabled = false
         chartView.rightAxis.drawLabelsEnabled = false
@@ -236,21 +235,6 @@ class HomeHealthPostVC: UIViewController, UITableViewDelegate, UITableViewDataSo
                     }
                 }
             }
-//            if goodArray.count < 1 {
-//                goodScoreLbl.isHidden = true
-//            }else{
-//                goodScoreLbl.text = "\(goodArray.count)"
-//                goodScoreLbl.isHidden = false
-//            }
-//            
-//            if badArray.count < 1 {
-//                badScoreLbl.isHidden = true
-//            }else{
-//                badScoreLbl.text = "\(badArray.count)"
-//                badScoreLbl.isHidden = false
-//            }
-
-        
             let red = ColorSelection.colorPicker.badType
             let green = ColorSelection.colorPicker.goodType
             let colors = chardtData.map { (entry) -> NSUIColor in

@@ -17,6 +17,7 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var selectedType: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var calorieTextField: UITextField!
     
     
     var selectedTime = Date()
@@ -42,6 +43,7 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
     func setUIforEdit() {
         self.descriptionText.text = health?.brandName
         self.commentText.text = health?.userComment
+        self.calorieTextField.text = health?.calorie
         if let time = health?.postTime {
             self.postTime.setTitle("\(DateService.service.pickerDate(date: time))", for: .normal)
         }
@@ -99,6 +101,7 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
         self.health?.userComment = commentText.text
         self.health?.postTime = health?.postTime
         self.health?.selectedType = postType?.rawValue
+        self.health?.calorie = calorieTextField.text
         save()
         self.dismiss(animated: true, completion: nil)
     }

@@ -59,7 +59,7 @@ class CreateNoteVC: UIViewController, UITextFieldDelegate{
     func searchBarUIDesign() {
         searchBar.layer.cornerRadius = 15
         searchBar.clipsToBounds = true
-        searchBar.layer.borderColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        searchBar.layer.borderColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         searchBar.layer.borderWidth = 1
         // TextField Color Customization
         let textFieldInsideSearchBar =  searchBar.value(forKey: "searchField") as? UITextField
