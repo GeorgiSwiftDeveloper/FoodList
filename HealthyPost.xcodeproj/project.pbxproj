@@ -11,6 +11,8 @@
 		6A05AEEB224220AB00DF295B /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEEA224220AB00DF295B /* DesignView.swift */; };
 		6A05AEF0224299AA00DF295B /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEEF224299AA00DF295B /* UpdateView.swift */; };
 		6A05AEF922442A5800DF295B /* DateSarvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEF822442A5800DF295B /* DateSarvice.swift */; };
+		6A14062222DD5BAD0027171D /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14062122DD5BAC0027171D /* NoteTableViewCell.swift */; };
+		6A14062422DD647B0027171D /* CreateMealVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14062322DD647B0027171D /* CreateMealVC.swift */; };
 		6A1824C722ADE3DC00A485DD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1824C622ADE3DC00A485DD /* SettingsVC.swift */; };
 		6A1824CB22ADE4D700A485DD /* ColorPickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1824CA22ADE4D700A485DD /* ColorPickerClass.swift */; };
 		6A1824CD22ADE51300A485DD /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1824CC22ADE51300A485DD /* SettingsCell.swift */; };
@@ -37,7 +39,6 @@
 		6A95FE5722235DCF00ED1A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A95FE5622235DCF00ED1A94 /* Assets.xcassets */; };
 		6A95FE5A22235DCF00ED1A94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A95FE5822235DCF00ED1A94 /* LaunchScreen.storyboard */; };
 		6A95FE6322235E7900ED1A94 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */; };
-		6A95FE6B2223709500ED1A94 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A95FE6A2223709500ED1A94 /* NoteTableViewCell.swift */; };
 		6AA3DD842271470E009BFE94 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3DD832271470E009BFE94 /* CalendarVC.swift */; };
 		6AA78C2622A1FB8F0087DC4D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA78C2522A1FB8F0087DC4D /* NotificationCenter.framework */; };
 		6AA78C2922A1FB8F0087DC4D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA78C2822A1FB8F0087DC4D /* TodayViewController.swift */; };
@@ -83,6 +84,8 @@
 		6A05AEEA224220AB00DF295B /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
 		6A05AEEF224299AA00DF295B /* UpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
 		6A05AEF822442A5800DF295B /* DateSarvice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSarvice.swift; sourceTree = "<group>"; };
+		6A14062122DD5BAC0027171D /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = /Users/georgimalkhasyan/Desktop/HealthyPost/HealthyPost/View/NoteTableViewCell.swift; sourceTree = "<absolute>"; };
+		6A14062322DD647B0027171D /* CreateMealVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealVC.swift; sourceTree = "<group>"; };
 		6A1824C622ADE3DC00A485DD /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		6A1824CA22ADE4D700A485DD /* ColorPickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerClass.swift; sourceTree = "<group>"; };
 		6A1824CC22ADE51300A485DD /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
@@ -111,7 +114,6 @@
 		6A95FE5922235DCF00ED1A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A95FE5B22235DCF00ED1A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A95FE6222235E7900ED1A94 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		6A95FE6A2223709500ED1A94 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		6AA3DD832271470E009BFE94 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = ../View/CalendarVC.swift; sourceTree = "<group>"; };
 		6AA78C2422A1FB8F0087DC4D /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA78C2522A1FB8F0087DC4D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -231,15 +233,16 @@
 		6A95FE662223678300ED1A94 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6A237D9D22DCA1EF006291F2 /* ProfileSettingsVC.swift */,
 				6A237D9922DC84B9006291F2 /* MainVC.swift */,
+				6A14062322DD647B0027171D /* CreateMealVC.swift */,
+				6A39094122DC6D2D00D85ADC /* SettignsMenuVC.swift */,
 				6A95FE4F22235DCD00ED1A94 /* HomeHealthPostVC.swift */,
 				6AFF58222225CBEE00DE7FE6 /* CreateNoteVC.swift */,
 				6AA3DD832271470E009BFE94 /* CalendarVC.swift */,
 				6AAE7A5B228FA24400918655 /* ChooseFontVC.swift */,
 				6A1824D022ADE8E100A485DD /* EditPostVC.swift */,
 				6A1824C622ADE3DC00A485DD /* SettingsVC.swift */,
-				6A39094122DC6D2D00D85ADC /* SettignsMenuVC.swift */,
-				6A237D9D22DCA1EF006291F2 /* ProfileSettingsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -247,7 +250,7 @@
 		6A95FE682223679600ED1A94 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6A95FE6A2223709500ED1A94 /* NoteTableViewCell.swift */,
+				6A14062122DD5BAC0027171D /* NoteTableViewCell.swift */,
 				6A80C8162255DC5C0044D04A /* CalendareTableViewCell.swift */,
 				6A1824CC22ADE51300A485DD /* SettingsCell.swift */,
 				6A44D9B722D99EA50093B4DF /* DropDownTableViewCell.swift */,
@@ -497,12 +500,13 @@
 				6A95FE4E22235DCD00ED1A94 /* AppDelegate.swift in Sources */,
 				6A1824D322AE50B000A485DD /* TextFieldPlaceholder.swift in Sources */,
 				6A95FE5022235DCD00ED1A94 /* HomeHealthPostVC.swift in Sources */,
+				6A14062222DD5BAD0027171D /* NoteTableViewCell.swift in Sources */,
 				6AFF58252226300100DE7FE6 /* PostType.swift in Sources */,
+				6A14062422DD647B0027171D /* CreateMealVC.swift in Sources */,
 				6A237D9E22DCA1EF006291F2 /* ProfileSettingsVC.swift in Sources */,
 				6A44D9B822D99EA50093B4DF /* DropDownTableViewCell.swift in Sources */,
 				6A1824CF22ADE73600A485DD /* DesignSettingsCell.swift in Sources */,
 				6AAE7A5C228FA24400918655 /* ChooseFontVC.swift in Sources */,
-				6A95FE6B2223709500ED1A94 /* NoteTableViewCell.swift in Sources */,
 				6A61E87A22AC2AD9003CA33E /* ButtonRoundService.swift in Sources */,
 				6AFCEB7722AEEEE000B3774E /* CircleImage.swift in Sources */,
 			);

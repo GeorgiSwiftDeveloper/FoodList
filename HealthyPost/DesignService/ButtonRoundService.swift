@@ -14,7 +14,8 @@ class ButtonRoundService: UIButton {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        layer.borderWidth = 2
+        layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         layer.cornerRadius = self.frame.size.width / 2
         layer.masksToBounds = true
     }

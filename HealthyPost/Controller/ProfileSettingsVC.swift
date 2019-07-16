@@ -25,15 +25,18 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
             userAddImage.image = UIImage(data: data as! Data)
         }
         
-       
+        if let userName = UserDefaults.standard.object(forKey: "userName")  {
+            userNameTextField.text = userName as? String
+        }
+        
          let imageTapp = UITapGestureRecognizer(target: self, action: #selector(userImageTapped))
          self.userAddImage.addGestureRecognizer(imageTapp)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-        UserDefaults.standard.set(userNameTextField.text, forKey: "userName")
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        self.view.endEditing(true)
+//        UserDefaults.standard.set(userNameTextField.text, forKey: "userName")
+//    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -42,7 +45,7 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
     }
 
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+        if var keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= 230
             }

@@ -26,7 +26,7 @@ class GradientView: UIView {
     override func layoutSubviews() {
         let grandientLayer = CAGradientLayer()
         grandientLayer.colors = [topColor.cgColor, bottomColor.cgColor, topColor.cgColor]
-        grandientLayer.startPoint = CGPoint(x: 0.5, y: 0.4)
+        grandientLayer.startPoint = CGPoint(x: 0.3, y: 0.4)
         grandientLayer.endPoint = CGPoint(x: 1, y: 1)
         grandientLayer.frame = self.bounds
         self.layer.insertSublayer(grandientLayer, at: 0)

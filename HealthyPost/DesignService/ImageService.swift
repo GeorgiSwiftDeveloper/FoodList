@@ -10,10 +10,10 @@ import UIKit
 
 class ImageService: UIImageView {
     override func awakeFromNib() {
-        layer.borderWidth = 1
+        layer.borderWidth = 2
         layer.masksToBounds = false
-        layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        layer.cornerRadius = self.frame.size.height/2.5
+        layer.borderColor = #colorLiteral(red: 0.3223614839, green: 0.8253351772, blue: 0.4431372549, alpha: 1)
+        layer.cornerRadius = self.frame.size.width/2
         self.clipsToBounds = true
     }
 
