@@ -32,16 +32,28 @@ class MainVC: UIViewController, ChartViewDelegate {
     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
-        currentDateLabel.text = "\(DateService.service.crrentDateTime())"
+//        currentDateLabel.text = "\(DateService.service.crrentDateTime())"
        
         fetchDataByDate()
         updateDataByWeek()
         chartViewDesingFunction()
+//        DispatchQueue.main.asyncAfter(deadline: .now()) {
+//            self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
+//            self.view.layoutIfNeeded()
+//        }
+        notePostTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        fetchDataByDate()
+        updateDataByWeek()
+        notePostTableView.reloadData()
+        currentDateLabel.text = "\(DateService.service.crrentDateTime())"
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
             self.view.layoutIfNeeded()
         }
-        notePostTableView.reloadData()
     }
     
     
@@ -257,6 +269,7 @@ class MainVC: UIViewController, ChartViewDelegate {
             print("Could not remove post \(error.localizedDescription)")
         }
     }
+    
 
 }
 
