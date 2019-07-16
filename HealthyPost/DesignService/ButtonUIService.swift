@@ -13,7 +13,7 @@ class ButtonUIService: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 4
-        self.setTitleColor(UIColor.white, for: .normal)
+//        self.setTitleColor(UIColor.white, for: .normal)
         layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         layer.shadowRadius = 4
         layer.shadowOpacity = 0.3

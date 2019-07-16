@@ -16,6 +16,12 @@ class CreateMealVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-
+    @IBAction func saveMeals(_ sender: Any) {
+        
+    }
+    
+    @IBAction func cancelCreateMealVC(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
