@@ -20,6 +20,7 @@ class SettignsMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSour
      @IBOutlet weak var userSettingsBtn: UIButton!
      @IBOutlet weak var userProfileImage: UIImageView!
      @IBOutlet weak var userNameLbl: UILabel!
+     @IBOutlet weak var userLocationLbl: UILabel!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +30,9 @@ class SettignsMenuVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         if let userName = UserDefaults.standard.object(forKey: "userName")  {
             userNameLbl.text = userName as? String
+        }
+        if let userLocation = UserDefaults.standard.object(forKey: "location")  {
+            userLocationLbl.text = userLocation as? String
         }
     }
     
