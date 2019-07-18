@@ -16,8 +16,9 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var postTime: UIButton!
     @IBOutlet weak var selectedType: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var mainView: UIView!
+//    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var calorieTextField: UITextField!
+    @IBOutlet weak var datePickerUIView: DesignSettingsUIView!
     
     
     var selectedTime = Date()
@@ -29,8 +30,8 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        let tap = UITapGestureRecognizer(target: self, action: #selector(mainViewGesture(_:)))
-        mainView.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(mainViewGesture(_:)))
+//        mainView.addGestureRecognizer(tap)
         
         postTime.setTitle("\(DateService.service.pickerDate(date: Date()))", for: .normal)
         postTime.setTitle("\(DateService.service.pickerDate(date: selectedTime ))", for: .normal)
@@ -59,24 +60,42 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc func mainViewGesture(_ sender: UIGestureRecognizer){
-        datePicker.isHidden = true
-    }
+//    @objc func mainViewGesture(_ sender: UIGestureRecognizer){
+//        datePicker.isHidden = true
+//    }
     
-    @IBAction func postTimeSelectedBtn(_ sender: Any) {
-        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
-        datePicker.addTarget(self, action: #selector(dataPickerValueChanged(sender:)), for: .valueChanged)
-        datePicker.isHidden = false
-    }
-    @objc func dataPickerValueChanged(sender: UIDatePicker) {
-        self.postTime.setTitle("\(DateService.service.pickerDate(date: sender.date))", for: .normal)
-    }
+//    @IBAction func postTimeSelectedBtn(_ sender: Any) {
+//        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+//        datePicker.addTarget(self, action: #selector(dataPickerValueChanged(sender:)), for: .valueChanged)
+//        datePicker.isHidden = false
+//    }
+//    @objc func dataPickerValueChanged(sender: UIDatePicker) {
+//        self.postTime.setTitle("\(DateService.service.pickerDate(date: sender.date))", for: .normal)
+//    }
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
+    @IBAction func timeBtnAction(_ sender: Any) {
+        datePicker.datePickerMode = UIDatePicker.Mode.dateAndTime
+        datePicker.addTarget(self, action: #selector(datepickerValueChanged(sender:)), for: .valueChanged)
+        datePickerUIView.isHidden = false
+        datePicker.isHidden = false
+    }
+    
+    @objc func datepickerValueChanged(sender: UIDatePicker) {
+        self.postTime.setTitle("\(DateService.service.pickerDate(date: sender.date))", for: .normal)
+    }
+    
+    @IBAction func closeDatePickerBtn(_ sender: Any) {
+        datePicker.isHidden = true
+        datePickerUIView.isHidden = true
+    }
+    
+    
     @IBAction func selectedType(_ sender: Any) {
         
         switch selectedType.selectedSegmentIndex {
@@ -99,7 +118,7 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
         
         self.health?.brandName = descriptionText.text
         self.health?.userComment = commentText.text
-        self.health?.postTime = health?.postTime
+        self.health?.postTime = datePicker.date
         self.health?.selectedType = postType?.rawValue
         self.health?.calorie = calorieTextField.text
         save()
@@ -114,4 +133,6 @@ class EditPostVC: UIViewController, UITextFieldDelegate {
         }
         
 }
+    
+    
 }

@@ -332,6 +332,7 @@
                         <outlet property="currentDateLabel" destination="R22-Sg-GQh" id="Xns-jw-KM3"/>
                         <outlet property="menuBtn" destination="DKE-EU-36S" id="aSY-sC-SQR"/>
                         <outlet property="notePostTableView" destination="gb5-yR-9ga" id="ktB-tH-6eu"/>
+                        <segue destination="euL-dx-Bya" kind="presentation" identifier="EditPostVC" id="xdk-Zq-IP3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6s-Mt-mFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1402,6 +1403,9 @@
                                                 <state key="normal" title="CANCEL">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="dissmissBtn:" destination="euL-dx-Bya" eventType="touchUpInside" id="KbU-0s-i76"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5W4-vX-oWc" customClass="ButtonUIService" customModule="HealthyPost" customModuleProvider="target">
                                                 <rect key="frame" x="323.66666666666669" y="0.0" width="60.333333333333314" height="50"/>
@@ -1409,6 +1413,9 @@
                                                 <state key="normal" title="SAVE">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="submitEditBtn:" destination="euL-dx-Bya" eventType="touchUpInside" id="vfU-iD-sj9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1551,6 +1558,9 @@
                                         <state key="normal" title="12:00 PM">
                                             <color key="titleColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="timeBtnAction:" destination="euL-dx-Bya" eventType="touchUpInside" id="upL-4c-I2Y"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Is it healthy ?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVd-6e-TUK">
                                         <rect key="frame" x="125" y="95" width="134" height="23"/>
@@ -1571,6 +1581,9 @@
                                             <segment title="No"/>
                                         </segments>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="selectedType:" destination="euL-dx-Bya" eventType="valueChanged" id="xva-fN-mdd"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1607,6 +1620,9 @@
                                             <constraint firstAttribute="height" constant="28" id="duT-TZ-lce"/>
                                         </constraints>
                                         <state key="normal" image="closeButton"/>
+                                        <connections>
+                                            <action selector="closeDatePickerBtn:" destination="euL-dx-Bya" eventType="touchUpInside" id="axe-EH-C0K"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1642,6 +1658,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NZm-iv-V8z"/>
                     </view>
+                    <connections>
+                        <outlet property="calorieTextField" destination="r43-Vr-TJV" id="BRN-AB-YdT"/>
+                        <outlet property="commentText" destination="3KU-PD-Es7" id="Fg0-wj-teL"/>
+                        <outlet property="datePicker" destination="W1I-hB-jMG" id="T0v-dz-UgO"/>
+                        <outlet property="datePickerUIView" destination="knQ-Uy-s2j" id="86N-gl-vep"/>
+                        <outlet property="descriptionText" destination="bzH-EL-5M9" id="Hwe-KM-KqH"/>
+                        <outlet property="postTime" destination="KwB-TK-4oC" id="9V2-yv-zrN"/>
+                        <outlet property="selectedType" destination="kYr-Tp-eP6" id="Jbb-Tb-TsY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s3e-uk-AHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
