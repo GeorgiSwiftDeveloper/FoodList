@@ -17,8 +17,8 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarTableView: UITableView!
     @IBOutlet weak var todayDateLbl: UILabel!
-    var healthModel = [HealthModel]()
     
+    var healthModel = [HealthModel]()
     var coreDataModel = CoreDataStackClass()
     
     fileprivate lazy var dateFormatter: DateFormatter = {
@@ -26,6 +26,8 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
         formatter.dateFormat = "yyyy/MM/dd"
         return formatter
     }()
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -60,8 +62,9 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let createNoteVC = segue.destination as! CreateNoteVC
+        let createNoteVC = segue.destination as! CreateMealVC
         createNoteVC.selectedTime = mydate
+        print(mydate)
     }
     
  
@@ -87,10 +90,10 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
         dateform.dateFormat = "yyyy/MM/dd"
         let myform = formatter.date(from: form)
         mydate = myform!
+        print(mydate)
         if monthPosition == .next || monthPosition == .previous {
             calendar.setCurrentPage(date, animated: true)
         }
-        
         fetchNotePoste()
         calendarTableView.reloadData()
     }

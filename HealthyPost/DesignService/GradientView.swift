@@ -21,7 +21,16 @@ class GradientView: UIView {
             self.setNeedsLayout()
         }
     }
-   
+    
+    
+    @IBInspectable var cornerRadius: CGFloat = 0
+    
+    @IBInspectable var shadowColor: UIColor? = UIColor.black
+    @IBInspectable var shadowOffSetWidth: Int = 0
+    @IBInspectable var shadowOffSetHeight: Int = 1
+    @IBInspectable var shadowOpacity: Float = 0.2
+    
+    
     
     override func layoutSubviews() {
         let grandientLayer = CAGradientLayer()
@@ -30,6 +39,12 @@ class GradientView: UIView {
         grandientLayer.endPoint = CGPoint(x: 1, y: 1)
         grandientLayer.frame = self.bounds
         self.layer.insertSublayer(grandientLayer, at: 0)
+        layer.cornerRadius = cornerRadius
+        layer.shadowColor = shadowColor?.cgColor
+        layer.shadowOffset = CGSize(width: shadowOffSetWidth, height: shadowOffSetHeight)
+        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
+        layer.shadowPath = shadowPath.cgPath
+        layer.shadowOpacity = shadowOpacity
     }
 
 }

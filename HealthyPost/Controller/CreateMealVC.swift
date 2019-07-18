@@ -19,8 +19,7 @@ class CreateMealVC: UIViewController {
     @IBOutlet weak var caloriaTextField: UITextField!
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var pickerView: CardView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var closePickerBtn: UIButton!
+//    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var mainView: UIView!
     
     
@@ -36,25 +35,25 @@ class CreateMealVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(mainViewGesture(_:)))
-        view.addGestureRecognizer(tap)
-        searchBarUIDesign()
         
-        chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: Date()))", for: .normal)
+//        chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: Date()))", for: .normal)
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: selectedTime ))", for: .normal)
-    }
-    
-    
-    
-    @objc func mainViewGesture(_ sender: UIGestureRecognizer){
+
+        
+        picker.date = selectedTime
+        
       
-        view.endEditing(true)
     }
+    
+    
+    @IBAction func closePickerView(_ sender: Any) {
+        pickerView.isHidden = true
+        picker.isHidden = true
+    }
+
     @IBAction func timeBtnAction(_ sender: Any) {
         picker.datePickerMode = UIDatePicker.Mode.dateAndTime
         picker.addTarget(self, action: #selector(dataPickerValueChanged(sender:)), for: .valueChanged)
-        mainView.backgroundColor = #colorLiteral(red: 0.9099021554, green: 0.3283959627, blue: 0.4355659187, alpha: 1)
-        closePickerBtn.isHidden = false
         pickerView.isHidden = false
         picker.isHidden = false
     }
@@ -70,19 +69,19 @@ class CreateMealVC: UIViewController {
     }
     
     
-    func searchBarUIDesign() {
-        searchBar.layer.cornerRadius = 15
-        searchBar.clipsToBounds = true
-        searchBar.layer.borderColor = #colorLiteral(red: 0.9099021554, green: 0.3283959627, blue: 0.4355659187, alpha: 1)
-        searchBar.layer.borderWidth = 1
-        // TextField Color Customization
-        let textFieldInsideSearchBar =  searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        // Glass Icon Customization
-        let glassIconView = textFieldInsideSearchBar?.leftView as? UIImageView
-        glassIconView?.image = glassIconView?.image?.withRenderingMode(.alwaysTemplate)
-        glassIconView?.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    }
+//    func searchBarUIDesign() {
+//        searchBar.layer.cornerRadius = 15
+//        searchBar.clipsToBounds = true
+//        searchBar.layer.borderColor = #colorLiteral(red: 0.9099021554, green: 0.3283959627, blue: 0.4355659187, alpha: 1)
+//        searchBar.layer.borderWidth = 1
+//        // TextField Color Customization
+//        let textFieldInsideSearchBar =  searchBar.value(forKey: "searchField") as? UITextField
+//        textFieldInsideSearchBar?.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        // Glass Icon Customization
+//        let glassIconView = textFieldInsideSearchBar?.leftView as? UIImageView
+//        glassIconView?.image = glassIconView?.image?.withRenderingMode(.alwaysTemplate)
+//        glassIconView?.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//    }
     
     
     @IBAction func selectedPostTypeAction(_ sender: UISegmentedControl) {
@@ -124,12 +123,5 @@ class CreateMealVC: UIViewController {
     
     @IBAction func cancelCreateMealVC(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func clousePicker(_ sender: Any) {
-        mainView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        picker.isHidden = true
-        pickerView.isHidden = true
-        closePickerBtn.isHidden = true
     }
 }

@@ -31,16 +31,10 @@ class MainVC: UIViewController, ChartViewDelegate {
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
     self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
-        
-//        currentDateLabel.text = "\(DateService.service.crrentDateTime())"
        
         fetchDataByDate()
         updateDataByWeek()
         chartViewDesingFunction()
-//        DispatchQueue.main.asyncAfter(deadline: .now()) {
-//            self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
-//            self.view.layoutIfNeeded()
-//        }
         notePostTableView.reloadData()
     }
     
@@ -113,6 +107,14 @@ class MainVC: UIViewController, ChartViewDelegate {
     @IBAction func addNoteBtnAction(_ sender: Any) {
         guard let storyboard = storyboard?.instantiateViewController(withIdentifier: "CreateNoteVC") else {return}
         self.present(storyboard, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EditPostVC" {
+            let destVC = segue.destination as! EditPostVC
+            destVC.health = sender as? HealthModel
+            
+        }
     }
     
     
