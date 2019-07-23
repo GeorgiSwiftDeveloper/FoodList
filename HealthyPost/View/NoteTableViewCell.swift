@@ -23,7 +23,7 @@ import UIKit
             if post.calorie == nil {
                 calorieLbl.text = ""
             }else{
-                calorieLbl.text = "\(post.calorie ?? "") calorie"
+                calorieLbl.text = "\(post.calorie ?? "") cl"
             }
             
             let dateFormatter = DateFormatter()

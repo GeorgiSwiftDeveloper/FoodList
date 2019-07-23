@@ -36,6 +36,9 @@ class MainVC: UIViewController, ChartViewDelegate {
         updateDataByWeek()
         chartViewDesingFunction()
         notePostTableView.reloadData()
+        
+//        notePostTableView.estimatedRowHeight = notePostTableView.rowHeight
+//        notePostTableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
