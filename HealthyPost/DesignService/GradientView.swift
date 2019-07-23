@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class GradientView: UIView {
 
-    @IBInspectable var topColor: UIColor = UIColor.blue {
+    @IBInspectable var topColor: UIColor = UIColor.white {
         didSet{
             self.setNeedsLayout()
         }
