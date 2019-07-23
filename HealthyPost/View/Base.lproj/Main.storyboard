@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EMx-BH-IyT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9MD-q3-bW3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1177,6 +1177,74 @@
             </objects>
             <point key="canvasLocation" x="971.01449275362324" y="-1544.021739130435"/>
         </scene>
+        <!--Log InVC-->
+        <scene sceneID="Vvo-wD-gGv">
+            <objects>
+                <viewController id="9MD-q3-bW3" customClass="LogInVC" customModule="HealthyPost" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Frz-MD-3tQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeimage" translatesAutoresizingMaskIntoConstraints="NO" id="8W5-Te-cic">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FooDZilla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-wb-3uF">
+                                <rect key="frame" x="51" y="50" width="312" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="cb7-rU-vcD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="50"/>
+                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dld-3h-Eaw" customClass="ButtonUIService" customModule="HealthyPost" customModuleProvider="target">
+                                <rect key="frame" x="51" y="648" width="312" height="58"/>
+                                <color key="backgroundColor" red="0.31006741523742676" green="0.47626364231109619" blue="0.34508004784584045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="78k-oR-tSW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="35"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5MS-rv-Nwx">
+                                <rect key="frame" x="15" y="279.33333333333331" width="384" height="177.33333333333331"/>
+                                <string key="text">FooDZilla is an app where you can create your personalized food list . App counts how many posts are healthy post and how many are unhealthy, it demonstrates  that data  and shows client the progress in the chart</string>
+                                <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="22"/>
+                                <color key="textColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.67516952753067017" green="0.77660173177719116" blue="0.76470690965652466" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="5MS-rv-Nwx" firstAttribute="centerX" secondItem="Frz-MD-3tQ" secondAttribute="centerX" id="1kT-5E-w3h"/>
+                            <constraint firstItem="4sQ-wb-3uF" firstAttribute="top" secondItem="Zsv-Na-xBW" secondAttribute="top" constant="30" id="2KA-Yh-DrO"/>
+                            <constraint firstItem="Dld-3h-Eaw" firstAttribute="centerX" secondItem="4sQ-wb-3uF" secondAttribute="centerX" id="Dci-Dj-VYe"/>
+                            <constraint firstItem="8W5-Te-cic" firstAttribute="top" secondItem="Frz-MD-3tQ" secondAttribute="top" id="FHc-8s-caW"/>
+                            <constraint firstItem="5MS-rv-Nwx" firstAttribute="leading" secondItem="Frz-MD-3tQ" secondAttribute="leading" constant="15" id="HfK-7k-P8m"/>
+                            <constraint firstItem="4sQ-wb-3uF" firstAttribute="leading" secondItem="Zsv-Na-xBW" secondAttribute="leading" constant="51" id="M5H-L2-o8T"/>
+                            <constraint firstItem="8W5-Te-cic" firstAttribute="trailing" secondItem="Zsv-Na-xBW" secondAttribute="trailing" id="O7Z-a8-PUa"/>
+                            <constraint firstItem="Zsv-Na-xBW" firstAttribute="trailing" secondItem="4sQ-wb-3uF" secondAttribute="trailing" constant="51" id="YwS-iC-T8E"/>
+                            <constraint firstItem="8W5-Te-cic" firstAttribute="leading" secondItem="Zsv-Na-xBW" secondAttribute="leading" id="Yz7-YE-97Z"/>
+                            <constraint firstAttribute="trailing" secondItem="5MS-rv-Nwx" secondAttribute="trailing" constant="15" id="bX3-hf-808"/>
+                            <constraint firstItem="Dld-3h-Eaw" firstAttribute="leading" secondItem="Zsv-Na-xBW" secondAttribute="leading" constant="51" id="e1j-rc-b1o"/>
+                            <constraint firstItem="Zsv-Na-xBW" firstAttribute="trailing" secondItem="Dld-3h-Eaw" secondAttribute="trailing" constant="51" id="eLM-KQ-TN9"/>
+                            <constraint firstItem="5MS-rv-Nwx" firstAttribute="centerY" secondItem="Frz-MD-3tQ" secondAttribute="centerY" id="t3m-6r-7xL"/>
+                            <constraint firstItem="Zsv-Na-xBW" firstAttribute="bottom" secondItem="Dld-3h-Eaw" secondAttribute="bottom" constant="30" id="wHJ-Gl-qS0"/>
+                            <constraint firstAttribute="bottom" secondItem="8W5-Te-cic" secondAttribute="bottom" id="wek-AD-azd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zsv-Na-xBW"/>
+                    </view>
+                    <connections>
+                        <outlet property="appDescriptionLbl" destination="5MS-rv-Nwx" id="ATe-MM-pMr"/>
+                        <outlet property="appNameTitle" destination="4sQ-wb-3uF" id="JYS-Ye-xgG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K4j-NW-kW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-923.1884057971015" y="-2201.0869565217395"/>
+        </scene>
         <!--Settigns MenuVC-->
         <scene sceneID="55z-jr-9hK">
             <objects>
@@ -1623,6 +1691,7 @@
         <image name="addChannelButton" width="22" height="22"/>
         <image name="calendar-1" width="50" height="50"/>
         <image name="closeButton" width="28" height="28"/>
+        <image name="homeimage" width="7680" height="9600"/>
         <image name="icons8-back-80" width="80" height="80"/>
         <image name="smackBurger" width="40" height="40"/>
         <image name="smackProfileIcon" width="192" height="192"/>
