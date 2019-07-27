@@ -232,8 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				6A16A8B222E7A90D0021C12A /* LogInVC.swift */,
-				6A237D9D22DCA1EF006291F2 /* ProfileSettingsVC.swift */,
 				6A237D9922DC84B9006291F2 /* MainVC.swift */,
+				6A237D9D22DCA1EF006291F2 /* ProfileSettingsVC.swift */,
 				6A14062322DD647B0027171D /* CreateMealVC.swift */,
 				6AA3DD832271470E009BFE94 /* CalendarVC.swift */,
 				6A39094122DC6D2D00D85ADC /* SettignsMenuVC.swift */,

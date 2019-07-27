@@ -33,7 +33,7 @@ class LogInVC: UIViewController {
 
 
     @IBAction func pressContinueBtn(_ sender: Any) {
-        guard let revealVC = storyboard?.instantiateViewController(withIdentifier: "SWRevealViewController") else {return}
-        self.present(revealVC, animated: true, completion: nil)
+        guard let mainVC = storyboard?.instantiateViewController(withIdentifier: "MainVC") else {return}
+        self.present(mainVC, animated: true, completion: nil)
     }
 }

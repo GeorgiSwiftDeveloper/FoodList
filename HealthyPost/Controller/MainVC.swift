@@ -14,7 +14,8 @@ import Charts
 
 class MainVC: UIViewController, ChartViewDelegate {
 
-    @IBOutlet weak var menuBtn: UIButton!
+
+    @IBOutlet weak var appNameLbl: UILabel!
     @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var notePostTableView: UITableView!
     @IBOutlet weak var currentDateLabel: UILabel!
@@ -28,9 +29,14 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
-    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-    self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        var myMutableString = NSMutableAttributedString()
+        myMutableString = NSMutableAttributedString(string: appNameLbl.text as! String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 40)!])
+        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.2471, green: 0.549, blue: 0, alpha: 1.0) , range: NSRange(location:3,length:1))
+        appNameLbl.attributedText = myMutableString
+        
+//        menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
+//    self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//    self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
        
         fetchDataByDate()
         updateDataByWeek()
@@ -74,7 +80,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         //Xaxis Label
         let xAxis: XAxis? = chartView.xAxis
         xAxis?.labelPosition = .top
-        xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         xAxis?.labelFont = UIFont(name: "Helvetica", size: 12)!
         xAxis?.drawGridLinesEnabled = false
         chartView.rightAxis.drawLabelsEnabled = false
@@ -113,8 +119,8 @@ class MainVC: UIViewController, ChartViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "EditPostVC" {
-            let destVC = segue.destination as! EditPostVC
+        if segue.identifier == "CreateMealVC" {
+            let destVC = segue.destination as! CreateMealVC
             destVC.health = sender as? HealthModel
             
         }
@@ -127,7 +133,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         let editAction =  UIContextualAction(style: .normal, title: "Edit", handler: { (action,view,completionHandler ) in
             let healthPost = self.healthModelData[indexPath.row]
             
-            self.performSegue(withIdentifier: "EditPostVC", sender: healthPost)
+            self.performSegue(withIdentifier: "CreateMealVC", sender: healthPost)
             completionHandler(true)
         })
         editAction.backgroundColor =  #colorLiteral(red: 0, green: 0.5, blue: 0, alpha: 1)

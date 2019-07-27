@@ -25,11 +25,12 @@ class CreateMealVC: UIViewController, UITextFieldDelegate {
     
     
     var brandName = [String]()
-    var itemArray = [HealthModel]()
+    
+    
     var selectedTime = Date()
     var postType: PostType? = nil
     var coreDataModel = CoreDataStackClass()
-    
+    var health: HealthModel?
     
     
     override func viewDidLoad() {
@@ -41,8 +42,27 @@ class CreateMealVC: UIViewController, UITextFieldDelegate {
 
         
         picker.date = selectedTime
-        
+        setUIforEdit()
       
+    }
+    
+    func setUIforEdit() {
+        self.descriptionTextField.text = health?.brandName
+        self.commentTextField.text = health?.userComment
+        self.caloriaTextField.text = health?.calorie
+        if let time = health?.postTime {
+            self.chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: time))", for: .normal)
+        }
+        
+        if health?.selectedType == "bad" {
+            selectPostType.selectedSegmentIndex = 1
+            selectPostType.tintColor = #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 0.8394243673)
+            postType = .notHealthy
+        }else if health?.selectedType == "good"{
+            selectPostType.selectedSegmentIndex = 0
+            selectPostType.tintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+            postType = .healthy
+        }
     }
     
     
@@ -99,15 +119,25 @@ class CreateMealVC: UIViewController, UITextFieldDelegate {
     
     
     func saveFoodNote() {
-        let managedContext = coreDataModel.persistentContainer.viewContext
-        let entity =  NSEntityDescription.entity(forEntityName: "HealthModel", in:managedContext)
-        let item = NSManagedObject(entity: entity!, insertInto:managedContext)
-        item.setValue(picker.date, forKey: "postTime")
-        item.setValue(descriptionTextField.text, forKey: "brandName")
-        item.setValue(commentTextField.text, forKey: "userComment")
-        item.setValue(postType?.rawValue, forKey: "selectedType")
-        item.setValue(caloriaTextField.text, forKey: "calorie")
+        if health == nil  {
+            let managedContext = coreDataModel.persistentContainer.viewContext
+            let entity =  NSEntityDescription.entity(forEntityName: "HealthModel", in:managedContext)
+            let item = NSManagedObject(entity: entity!, insertInto:managedContext)
+            item.setValue(picker.date, forKey: "postTime")
+            item.setValue(descriptionTextField.text, forKey: "brandName")
+            item.setValue(commentTextField.text, forKey: "userComment")
+            item.setValue(postType?.rawValue, forKey: "selectedType")
+            item.setValue(caloriaTextField.text, forKey: "calorie")
+        }else {
+            health?.brandName = self.descriptionTextField.text
+            health?.calorie = self.caloriaTextField.text
+            health?.postTime = picker.date
+            health?.selectedType = postType?.rawValue
+            self.dismiss(animated: true, completion: nil)
+        }
+       
         do {
+            let managedContext = coreDataModel.persistentContainer.viewContext
             try managedContext.save()
         }catch {
             print("Can not save note \(error)")
