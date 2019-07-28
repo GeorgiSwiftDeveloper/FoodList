@@ -321,10 +321,10 @@
             </objects>
             <point key="canvasLocation" x="-581.15942028985512" y="-1015.7608695652175"/>
         </scene>
-        <!--Create MealVC-->
+        <!--Createand Update NoteVC-->
         <scene sceneID="kKl-gk-Uus">
             <objects>
-                <viewController storyboardIdentifier="CreateNoteVC" id="myL-UL-9g4" customClass="CreateMealVC" customModule="HealthyPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateNoteVC" id="myL-UL-9g4" customClass="CreateandUpdateNoteVC" customModule="HealthyPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I2k-3N-QXr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -378,7 +378,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XmG-0m-jaZ">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNV-Sr-ELa">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FooDZilla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNV-Sr-ELa">
                                         <rect key="frame" x="136" y="45" width="142" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="23p-vb-IA0"/>

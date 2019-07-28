@@ -120,7 +120,7 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateMealVC" {
-            let destVC = segue.destination as! CreateMealVC
+            let destVC = segue.destination as! CreateandUpdateNoteVC
             destVC.health = sender as? HealthModel
             
         }

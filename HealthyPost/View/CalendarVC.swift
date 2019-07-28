@@ -62,7 +62,7 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let createNoteVC = segue.destination as! CreateMealVC
+        let createNoteVC = segue.destination as! CreateandUpdateNoteVC
         createNoteVC.selectedTime = mydate
         print(mydate)
     }
