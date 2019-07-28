@@ -12,6 +12,7 @@ import CoreData
 class CreateMealVC: UIViewController, UITextFieldDelegate {
 
     
+    @IBOutlet weak var creatOrEditnoteLabel: UILabel!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var selectPostType: UISegmentedControl!
@@ -36,14 +37,12 @@ class CreateMealVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: Date()))", for: .normal)
+
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: selectedTime ))", for: .normal)
 
         
         picker.date = selectedTime
         setUIforEdit()
-      
     }
     
     func setUIforEdit() {
@@ -119,7 +118,7 @@ class CreateMealVC: UIViewController, UITextFieldDelegate {
     
     
     func saveFoodNote() {
-        if health == nil  {
+        if health == nil    {
             let managedContext = coreDataModel.persistentContainer.viewContext
             let entity =  NSEntityDescription.entity(forEntityName: "HealthModel", in:managedContext)
             let item = NSManagedObject(entity: entity!, insertInto:managedContext)
@@ -130,6 +129,7 @@ class CreateMealVC: UIViewController, UITextFieldDelegate {
             item.setValue(caloriaTextField.text, forKey: "calorie")
         }else {
             health?.brandName = self.descriptionTextField.text
+            health?.userComment = self.commentTextField.text
             health?.calorie = self.caloriaTextField.text
             health?.postTime = picker.date
             health?.selectedType = postType?.rawValue
