@@ -24,7 +24,6 @@ class GradientView: UIView {
     
     
     @IBInspectable var cornerRadius: CGFloat = 0
-    
     @IBInspectable var shadowColor: UIColor? = UIColor.black
     @IBInspectable var shadowOffSetWidth: Int = 0
     @IBInspectable var shadowOffSetHeight: Int = 1
