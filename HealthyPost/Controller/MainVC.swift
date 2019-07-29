@@ -14,7 +14,7 @@ import Charts
 
 class MainVC: UIViewController, ChartViewDelegate {
 
-
+    
     @IBOutlet weak var appNameLbl: UILabel!
     @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var notePostTableView: UITableView!
@@ -39,7 +39,13 @@ class MainVC: UIViewController, ChartViewDelegate {
 //    self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
        
         fetchDataByDate()
-        updateDataByWeek()
+        ChartViewModel.getChartViewData.updateDataByWeek { (chartData, error) in
+            if let chartData = chartData {
+                DispatchQueue.main.async {
+                     self.chartView.data = chartData
+                }
+            }
+        }
         chartViewDesingFunction()
         notePostTableView.reloadData()
         
@@ -50,7 +56,13 @@ class MainVC: UIViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchDataByDate()
-        updateDataByWeek()
+        ChartViewModel.getChartViewData.updateDataByWeek { (chartData, error) in
+            if let chartData = chartData {
+                DispatchQueue.main.async {
+                    self.chartView.data = chartData
+                }
+            }
+        }
         notePostTableView.reloadData()
         currentDateLabel.text = "\(DateService.service.crrentDateTime())"
         DispatchQueue.main.asyncAfter(deadline: .now()) {
@@ -142,7 +154,8 @@ class MainVC: UIViewController, ChartViewDelegate {
             self.removePostRow(atIndexPath: indexPath)
             self.healthModelData.remove(at: indexPath.row)
             self.notePostTableView.deleteRows(at: [indexPath], with: .automatic)
-            self.updateDataByWeek()
+//            self.updateDataByWeek()
+            
             self.chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             
             DispatchQueue.main.async {
@@ -159,84 +172,84 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     
     
-    func updateDataByWeek() {
-        let managedContext = coreDataModel.persistentContainer.viewContext
-        let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")
-        let calendar = Calendar.current
-        let today = calendar.startOfDay(for: Date())
-        let dayOfWeek = calendar.component(.weekday, from: today)
-        let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: today)!
-        let days = (weekdays.lowerBound ..< weekdays.upperBound)
-            .compactMap { calendar.date(byAdding: .weekday, value: $0 - dayOfWeek, to: today) }
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
-        let week =  days.map({ (DateelementOfCollection) -> Date in
-            return DateelementOfCollection
-        })
-        
-        let frompredicate = NSPredicate(format: "postTime > %@", week[0]  as CVarArg)
-        let topredicate = NSPredicate(format: "postTime  <> %@",  week[6] as CVarArg )
-        let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [frompredicate, topredicate])
-        request.predicate = datePredicate
-        do{
-            let result = try managedContext.fetch(request)
-            var aRed = Double()
-            var agrean = Double()
-            
-            var goodArray = [String]()
-            var badArray = [String]()
-            var index: Int = -1
-            var chardtData = [BarChartDataEntry]()
-            for mydate in week {
-                index += 1
-                for getData in result {
-                    if formatter.string(from: getData.postTime!) == formatter.string(from: mydate)  {
-                        if getData.selectedType == "good"{
-                            agrean += 3.0
-                        }else if getData.selectedType == "bad" {
-                            aRed -= 3.0
-                        }
-                    }
-                }
-                
-                chardtData.append(BarChartDataEntry(x: Double(index), y: aRed))
-                chardtData.append(BarChartDataEntry(x: Double(index), y: agrean))
-                aRed = 0.0
-                agrean = 0.0
-            }
-            
-            for getData in result {
-                if formatter.string(from: getData.postTime!) == formatter.string(from: Date()) {
-                    if getData.selectedType == "good"{
-                        goodArray.append(getData.selectedType!)
-                    }else if getData.selectedType == "bad" {
-                        badArray.append(getData.selectedType!)
-                    }
-                }
-            }
-            let red = ColorSelection.colorPicker.badType
-            let green = ColorSelection.colorPicker.goodType
-            let colors = chardtData.map { (entry) -> NSUIColor in
-                return entry.y < 0 ? red : green
-            }
-            let set =
-                BarChartDataSet(entries: chardtData, label: "Values")
-            set.colors = colors
-            set.valueColors = colors
-            
-            let data = BarChartData(dataSet: set)
-            data.setValueFont(.systemFont(ofSize: 10))
-            
-            let formatter = NumberFormatter()
-            formatter.maximumFractionDigits = 1
-            data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
-            data.barWidth = 0.3
-            chartView.data = data
-        }catch let error as NSError{
-            print(error.description)
-        }
-    }
-    
+//    func updateDataByWeek() {
+//        let managedContext = coreDataModel.persistentContainer.viewContext
+//        let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")
+//        let calendar = Calendar.current
+//        let today = calendar.startOfDay(for: Date())
+//        let dayOfWeek = calendar.component(.weekday, from: today)
+//        let weekdays = calendar.range(of: .weekday, in: .weekOfYear, for: today)!
+//        let days = (weekdays.lowerBound ..< weekdays.upperBound)
+//            .compactMap { calendar.date(byAdding: .weekday, value: $0 - dayOfWeek, to: today) }
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "MM/dd/yyyy"
+//        let week =  days.map({ (DateelementOfCollection) -> Date in
+//            return DateelementOfCollection
+//        })
+//
+//        let frompredicate = NSPredicate(format: "postTime > %@", week[0]  as CVarArg)
+//        let topredicate = NSPredicate(format: "postTime  <> %@",  week[6] as CVarArg )
+//        let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [frompredicate, topredicate])
+//        request.predicate = datePredicate
+//        do{
+//            let result = try managedContext.fetch(request)
+//            var aRed = Double()
+//            var agrean = Double()
+//
+//            var goodArray = [String]()
+//            var badArray = [String]()
+//            var index: Int = -1
+//            var chardtData = [BarChartDataEntry]()
+//            for mydate in week {
+//                index += 1
+//                for getData in result {
+//                    if formatter.string(from: getData.postTime!) == formatter.string(from: mydate)  {
+//                        if getData.selectedType == "good"{
+//                            agrean += 3.0
+//                        }else if getData.selectedType == "bad" {
+//                            aRed -= 3.0
+//                        }
+//                    }
+//                }
+//
+//                chardtData.append(BarChartDataEntry(x: Double(index), y: aRed))
+//                chardtData.append(BarChartDataEntry(x: Double(index), y: agrean))
+//                aRed = 0.0
+//                agrean = 0.0
+//            }
+//
+//            for getData in result {
+//                if formatter.string(from: getData.postTime!) == formatter.string(from: Date()) {
+//                    if getData.selectedType == "good"{
+//                        goodArray.append(getData.selectedType!)
+//                    }else if getData.selectedType == "bad" {
+//                        badArray.append(getData.selectedType!)
+//                    }
+//                }
+//            }
+//            let red = ColorSelection.colorPicker.badType
+//            let green = ColorSelection.colorPicker.goodType
+//            let colors = chardtData.map { (entry) -> NSUIColor in
+//                return entry.y < 0 ? red : green
+//            }
+//            let set =
+//                BarChartDataSet(entries: chardtData, label: "Values")
+//            set.colors = colors
+//            set.valueColors = colors
+//
+//            let data = BarChartData(dataSet: set)
+//            data.setValueFont(.systemFont(ofSize: 10))
+//
+//            let formatter = NumberFormatter()
+//            formatter.maximumFractionDigits = 1
+//            data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+//            data.barWidth = 0.3
+//            chartView.data = data
+//        }catch let error as NSError{
+//            print(error.description)
+//        }
+//    }
+//
     func fetchDataByDate() {
         let managedContext = coreDataModel.persistentContainer.viewContext
         let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")

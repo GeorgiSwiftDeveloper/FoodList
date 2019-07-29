@@ -10,10 +10,11 @@ import Foundation
 import Charts
 import CoreData
 
-var healthModelData = [HealthModel]()
-var coreDataModel = CoreDataStackClass()
+
 
 class ChartViewModel {
+    var healthModelData = [HealthModel]()
+    var coreDataModel = CoreDataStackClass()
 
     static let getChartViewData = ChartViewModel()
     
