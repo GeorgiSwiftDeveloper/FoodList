@@ -311,7 +311,7 @@
                     <connections>
                         <outlet property="appNameLbl" destination="guu-BO-tht" id="cly-BP-GQq"/>
                         <outlet property="cardViewHeightLayout" destination="Wnc-4I-FIT" id="rnV-h4-gHi"/>
-                        <outlet property="chartView" destination="qmb-1i-yj8" id="ew3-Mv-TOI"/>
+                        <outlet property="chartView" destination="qmb-1i-yj8" id="tUi-wr-Y34"/>
                         <outlet property="currentDateLabel" destination="R22-Sg-GQh" id="Xns-jw-KM3"/>
                         <outlet property="notePostTableView" destination="gb5-yR-9ga" id="ktB-tH-6eu"/>
                         <segue destination="myL-UL-9g4" kind="show" identifier="CreateMealVC" id="Nhq-fh-BR9"/>
@@ -624,7 +624,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CALENDAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXV-g9-5Zh">
-                                        <rect key="frame" x="109.66666666666667" y="45" width="194.66666666666663" height="23"/>
+                                        <rect key="frame" x="109.66666666666669" y="45" width="194.66666666666663" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="aS0-04-hjz"/>
                                             <constraint firstAttribute="width" constant="194.66999999999999" id="dfc-9T-frw"/>
@@ -733,7 +733,7 @@
                                 <rect key="frame" x="0.0" y="417" width="414" height="319"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="65" id="t0d-qz-gbZ" customClass="CalendareTableViewCell" customModule="HealthyPost" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="65" id="t0d-qz-gbZ" customClass="CalendareTableViewCell" customModule="HealthyPost" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t0d-qz-gbZ" id="odF-Xt-P5q">
@@ -1242,7 +1242,7 @@
         <image name="smackProfileIcon" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CMC-4j-2fo"/>
+        <segue reference="Nhq-fh-BR9"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

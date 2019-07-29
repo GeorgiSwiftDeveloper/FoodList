@@ -227,7 +227,6 @@
 			children = (
 				6A5E1D2722ED26BC003D4BDF /* LogInVC.swift */,
 				6A237D9922DC84B9006291F2 /* MainVC.swift */,
-				6A99EFFA22EFA559005CAA64 /* ChartViewModel.swift */,
 				6A14062322DD647B0027171D /* CreateandUpdateNoteVC.swift */,
 				6AA3DD832271470E009BFE94 /* CalendarVC.swift */,
 				6A237D9D22DCA1EF006291F2 /* ProfileSettingsVC.swift */,
@@ -253,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */,
+				6A99EFFA22EFA559005CAA64 /* ChartViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

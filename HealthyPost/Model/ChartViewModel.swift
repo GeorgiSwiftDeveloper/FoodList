@@ -97,3 +97,39 @@ func updateDataByWeek(completionHandler:@escaping (ChartData?, Error?) -> Void){
     }
     }
 }
+
+
+//class ChartDesign {
+//     static let getChartViewData = ChartDesign()
+//    func chardtDataDesignFunc(completionHandler:@escaping (BarChartView?, Error?) -> Void) {
+//        let chartView = BarChartView()
+//        //        chartView.delegate = self
+//        chartView.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 0)
+//        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: DateService.service.weekDays.shortWeekdaySymbols)
+//        chartView.xAxis.granularity = 1.0
+//        chartView.doubleTapToZoomEnabled = false
+//        
+//        //Xaxis Label
+//        let xAxis: XAxis? = chartView.xAxis
+//        xAxis?.labelPosition = .top
+//        xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+//        xAxis?.labelFont = UIFont(name: "Helvetica", size: 12)!
+//        xAxis?.drawGridLinesEnabled = false
+//        chartView.rightAxis.drawLabelsEnabled = false
+//        chartView.leftAxis.drawLabelsEnabled = false
+//        //Grid
+//        chartView.leftAxis.drawGridLinesEnabled = false
+//        chartView.rightAxis.drawGridLinesEnabled = false
+//        
+//        chartView.rightAxis.enabled = false
+//        chartView.leftAxis.enabled = false
+//        
+//        chartView.maxVisibleCount = 0
+//        chartView.drawBarShadowEnabled = false
+//        chartView.legend.enabled = false
+//        chartView.highlightPerTapEnabled = true
+//        chartView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        
+//        completionHandler(chartView, nil)
+//    }
+//}
