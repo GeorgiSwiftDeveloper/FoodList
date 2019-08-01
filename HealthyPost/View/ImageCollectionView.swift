@@ -10,5 +10,12 @@ import UIKit
 
 class ImageCollectionView: UICollectionViewCell {
     @IBOutlet weak var foodImage: UIImageView!
+    @IBOutlet weak var foodTitleLbl: UILabel!
     
+    
+    func configureCell(foodList: BestFoodList ) {
+        foodImage.image =  UIImage(named: foodList.imageName!)
+        foodTitleLbl.text = foodList.title
+        
+    }
 }

@@ -24,7 +24,11 @@ class MainVC: UIViewController, ChartViewDelegate {
     @IBOutlet weak var cardViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
+    let healthFood = [BestFoodList(imageName: "image1.png", title: "Avocado"),
+                                BestFoodList(imageName: "image3.jpg", title: "Been"),
+                                BestFoodList(imageName: "image3.jpg", title: "Chicken"),
+                                BestFoodList(imageName: "image4.jpg", title: "Fish"),
+                                BestFoodList(imageName: "image5.jpg", title: "Broccoli")]
     
      var healthModelData = [HealthModel]()
      var coreDataModel = CoreDataStackClass()
@@ -44,6 +48,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         chartViewDesingFunction()
         notePostTableView.reloadData()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -237,12 +242,13 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return healthFood.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as? ImageCollectionView
-        
+        let topFoodList = healthFood[indexPath.row]
+        cell?.configureCell(foodList: topFoodList)
         return cell!
     }
     

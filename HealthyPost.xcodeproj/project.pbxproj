@@ -43,6 +43,7 @@
 		6AA78C3022A1FB8F0087DC4D /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6AA78C2422A1FB8F0087DC4D /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6AA78C3722A1FBDB0087DC4D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */; };
 		6AF71B7222F359C3008C9702 /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF71B7122F359C3008C9702 /* ImageCollectionView.swift */; };
+		6AF71B7422F363A5008C9702 /* GetFoodListFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF71B7322F363A5008C9702 /* GetFoodListFromJson.swift */; };
 		6AFCEB7722AEEEE000B3774E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCEB7622AEEEE000B3774E /* CircleImage.swift */; };
 		6AFF58252226300100DE7FE6 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF58242226300100DE7FE6 /* PostType.swift */; };
 		6AFF58272226569E00DE7FE6 /* ButtonUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF58262226569E00DE7FE6 /* ButtonUIService.swift */; };
@@ -116,6 +117,7 @@
 		6AA78C3522A1FBA00087DC4D /* HealthyPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthyPost.entitlements; sourceTree = "<group>"; };
 		6AA78C3622A1FBC30087DC4D /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
 		6AF71B7122F359C3008C9702 /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
+		6AF71B7322F363A5008C9702 /* GetFoodListFromJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodListFromJson.swift; sourceTree = "<group>"; };
 		6AFCEB7622AEEEE000B3774E /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		6AFF58242226300100DE7FE6 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
 		6AFF58262226569E00DE7FE6 /* ButtonUIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIService.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */,
 				6A99EFFA22EFA559005CAA64 /* ChartViewModel.swift */,
+				6AF71B7322F363A5008C9702 /* GetFoodListFromJson.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A237D9C22DC8855006291F2 /* GradientView.swift in Sources */,
+				6AF71B7422F363A5008C9702 /* GetFoodListFromJson.swift in Sources */,
 				6A1824CB22ADE4D700A485DD /* ColorPickerClass.swift in Sources */,
 				6AF71B7222F359C3008C9702 /* ImageCollectionView.swift in Sources */,
 				6A80C8172255DC5C0044D04A /* CalendareTableViewCell.swift in Sources */,
