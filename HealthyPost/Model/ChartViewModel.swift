@@ -32,6 +32,9 @@ func updateDataByWeek(completionHandler:@escaping (ChartData?, Error?) -> Void){
     let week =  days.map({ (DateelementOfCollection) -> Date in
         return DateelementOfCollection
     })
+    for i in week  {
+        print(i)
+    }
     
     let frompredicate = NSPredicate(format: "postTime > %@", week[0]  as CVarArg)
     let topredicate = NSPredicate(format: "postTime  <> %@",  week[6] as CVarArg )
@@ -64,15 +67,15 @@ func updateDataByWeek(completionHandler:@escaping (ChartData?, Error?) -> Void){
             agrean = 0.0
         }
         
-        for getData in result {
-            if formatter.string(from: getData.postTime!) == formatter.string(from: Date()) {
-                if getData.selectedType == "good"{
-                    goodArray.append(getData.selectedType!)
-                }else if getData.selectedType == "bad" {
-                    badArray.append(getData.selectedType!)
-                }
-            }
-        }
+//        for getData in result {
+//            if formatter.string(from: getData.postTime!) == formatter.string(from: Date()) {
+//                if getData.selectedType == "good"{
+//                    goodArray.append(getData.selectedType!)
+//                }else if getData.selectedType == "bad" {
+//                    badArray.append(getData.selectedType!)
+//                }
+//            }
+//        }
         let red = ColorSelection.colorPicker.badType
         let green = ColorSelection.colorPicker.goodType
         let colors = chardtData.map { (entry) -> NSUIColor in

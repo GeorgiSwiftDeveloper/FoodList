@@ -23,7 +23,6 @@
 		6A338B9F22A2FB28009E958F /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A338B9D22A2FB28009E958F /* CoreDataModel.swift */; };
 		6A338BA022A2FD8C009E958F /* DateSarvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEF822442A5800DF295B /* DateSarvice.swift */; };
 		6A39094022DC69E300D85ADC /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A39093E22DC69E300D85ADC /* SWRevealViewController.m */; };
-		6A44D9B822D99EA50093B4DF /* DropDownTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A44D9B722D99EA50093B4DF /* DropDownTableViewCell.swift */; };
 		6A5522CB2264F4120096D100 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5522CA2264F4120096D100 /* CardView.swift */; };
 		6A5E1D2622ED2585003D4BDF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5E1D2522ED2585003D4BDF /* NoteTableViewCell.swift */; };
 		6A5E1D2822ED26BD003D4BDF /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5E1D2722ED26BC003D4BDF /* LogInVC.swift */; };
@@ -43,6 +42,7 @@
 		6AA78C2C22A1FB8F0087DC4D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA78C2A22A1FB8F0087DC4D /* MainInterface.storyboard */; };
 		6AA78C3022A1FB8F0087DC4D /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6AA78C2422A1FB8F0087DC4D /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6AA78C3722A1FBDB0087DC4D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */; };
+		6AF71B7222F359C3008C9702 /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF71B7122F359C3008C9702 /* ImageCollectionView.swift */; };
 		6AFCEB7722AEEEE000B3774E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCEB7622AEEEE000B3774E /* CircleImage.swift */; };
 		6AFF58252226300100DE7FE6 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF58242226300100DE7FE6 /* PostType.swift */; };
 		6AFF58272226569E00DE7FE6 /* ButtonUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF58262226569E00DE7FE6 /* ButtonUIService.swift */; };
@@ -92,7 +92,6 @@
 		6A39093D22DC69E200D85ADC /* HealthyPost-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HealthyPost-Bridging-Header.h"; sourceTree = "<group>"; };
 		6A39093E22DC69E300D85ADC /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		6A39093F22DC69E300D85ADC /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		6A44D9B722D99EA50093B4DF /* DropDownTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTableViewCell.swift; sourceTree = "<group>"; };
 		6A5522CA2264F4120096D100 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		6A5E1D2522ED2585003D4BDF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		6A5E1D2722ED26BC003D4BDF /* LogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
@@ -116,6 +115,7 @@
 		6AA78C2D22A1FB8F0087DC4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6AA78C3522A1FBA00087DC4D /* HealthyPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthyPost.entitlements; sourceTree = "<group>"; };
 		6AA78C3622A1FBC30087DC4D /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
+		6AF71B7122F359C3008C9702 /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
 		6AFCEB7622AEEEE000B3774E /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		6AFF58242226300100DE7FE6 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
 		6AFF58262226569E00DE7FE6 /* ButtonUIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIService.swift; sourceTree = "<group>"; };
@@ -240,8 +240,8 @@
 				6A16A8B422E7CABA0021C12A /* NoteTableViewCell.swift */,
 				6A5E1D2522ED2585003D4BDF /* NoteTableViewCell.swift */,
 				6A80C8162255DC5C0044D04A /* CalendareTableViewCell.swift */,
-				6A44D9B722D99EA50093B4DF /* DropDownTableViewCell.swift */,
 				6AFF58242226300100DE7FE6 /* PostType.swift */,
+				6AF71B7122F359C3008C9702 /* ImageCollectionView.swift */,
 				6A95FE5322235DCD00ED1A94 /* Main.storyboard */,
 				6A95FE5622235DCF00ED1A94 /* Assets.xcassets */,
 			);
@@ -467,6 +467,7 @@
 			files = (
 				6A237D9C22DC8855006291F2 /* GradientView.swift in Sources */,
 				6A1824CB22ADE4D700A485DD /* ColorPickerClass.swift in Sources */,
+				6AF71B7222F359C3008C9702 /* ImageCollectionView.swift in Sources */,
 				6A80C8172255DC5C0044D04A /* CalendareTableViewCell.swift in Sources */,
 				6A05AEF0224299AA00DF295B /* UpdateView.swift in Sources */,
 				6A39094022DC69E300D85ADC /* SWRevealViewController.m in Sources */,
@@ -488,7 +489,6 @@
 				6A14062422DD647B0027171D /* CreateandUpdateNoteVC.swift in Sources */,
 				6A5E1D2622ED2585003D4BDF /* NoteTableViewCell.swift in Sources */,
 				6A237D9E22DCA1EF006291F2 /* ProfileSettingsVC.swift in Sources */,
-				6A44D9B822D99EA50093B4DF /* DropDownTableViewCell.swift in Sources */,
 				6A1824CF22ADE73600A485DD /* DesignSettingsCell.swift in Sources */,
 				6A61E87A22AC2AD9003CA33E /* ButtonRoundService.swift in Sources */,
 				6AFCEB7722AEEEE000B3774E /* CircleImage.swift in Sources */,

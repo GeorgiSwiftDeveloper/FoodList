@@ -15,11 +15,14 @@ import Charts
 class MainVC: UIViewController, ChartViewDelegate {
 
     
+    let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    
     @IBOutlet weak var appNameLbl: UILabel!
     @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var notePostTableView: UITableView!
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var cardViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     
     
@@ -29,6 +32,8 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      
         var myMutableString = NSMutableAttributedString()
         myMutableString = NSMutableAttributedString(string: appNameLbl.text as! String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 40)!])
         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.2471, green: 0.549, blue: 0, alpha: 1.0) , range: NSRange(location:3,length:1))
@@ -163,8 +168,9 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     
     func fetchDataByDate() {
-        let managedContext = coreDataModel.persistentContainer.viewContext
-        let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")
+//        let managedContext = coreDataModel.persistentContainer.viewContext
+//        let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")
+        let request : NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
         // Get today's beginning & end
@@ -181,7 +187,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yyyy"
         do {
-            healthModelData = try managedContext.fetch(request)
+            healthModelData = try (managedContext?.fetch(request))!
             for item in healthModelData {
                 item.value(forKey: "userComment")
                 item.value(forKey: "postTime")
@@ -197,10 +203,10 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     
     func removePostRow(atIndexPath indexPath: IndexPath) {
-        let managedContext = coreDataModel.persistentContainer.viewContext
-        managedContext.delete(healthModelData[indexPath.row])
+//        let managedContext = coreDataModel.persistentContainer.viewContext
+        managedContext?.delete(healthModelData[indexPath.row])
         do{
-            try managedContext.save()
+            try managedContext?.save()
         }catch {
             print("Could not remove post \(error.localizedDescription)")
         }
@@ -226,5 +232,19 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
+}
+
+extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as? ImageCollectionView
+        
+        return cell!
+    }
+    
     
 }
