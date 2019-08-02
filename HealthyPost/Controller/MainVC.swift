@@ -89,7 +89,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         
         //Xaxis Label
         let xAxis: XAxis? = chartView.xAxis
-        xAxis?.labelPosition = .top
+        xAxis?.labelPosition = .bottom
         xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         xAxis?.labelFont = UIFont(name: "Helvetica", size: 12)!
         xAxis?.drawGridLinesEnabled = false
@@ -155,7 +155,7 @@ class MainVC: UIViewController, ChartViewDelegate {
             self.getChartViewDataFromCoplitionHandler()
             self.chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             if self.healthModelData.count == 0 {
-                 self.contentViewHeightLayout.constant = 950
+                 self.contentViewHeightLayout.constant = 1000
                 self.notePostTableView.reloadData()
             }
             DispatchQueue.main.async {

@@ -115,7 +115,7 @@ class CreateandUpdateNoteVC: UIViewController, UITextFieldDelegate {
     
     
     func saveFoodNote() {
-        if health == nil  && descriptionTextField.text != "" && commentTextField.text != "" && caloriaTextField.text != "" && postType != nil  {
+        if health == nil  && descriptionTextField.text != ""  && postType != nil  {
             
             let managedContext = coreDataModel.persistentContainer.viewContext
             let entity =  NSEntityDescription.entity(forEntityName: "HealthModel", in:managedContext)

@@ -79,7 +79,7 @@
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbY-zD-2Op">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="65"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                                                             <subviews>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yv-qK-ceu" customClass="DesignView" customModule="HealthyPost" customModuleProvider="target">
                                                                                     <rect key="frame" x="10" y="10" width="7" height="45"/>
@@ -93,7 +93,7 @@
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </view>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calorie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="e11-Tb-bqC">
-                                                                                    <rect key="frame" x="327.66666666666669" y="22" width="41.333333333333314" height="21"/>
+                                                                                    <rect key="frame" x="328.66666666666669" y="22" width="41.333333333333314" height="21"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="width" constant="41.329999999999998" id="8P6-Zq-7xe"/>
                                                                                     </constraints>
@@ -388,7 +388,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2435251772" green="0.36967918280000001" blue="0.29410862920000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="2eI-Ng-HGu"/>
                                     <constraint firstItem="R0G-fk-pJv" firstAttribute="top" secondItem="sfg-Qq-dsb" secondAttribute="top" constant="15" id="8Jb-OZ-LV7"/>
@@ -614,7 +614,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.2435251772" green="0.36967918280000001" blue="0.29410862920000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="yXV-g9-5Zh" secondAttribute="trailing" constant="109.67" id="1ND-zV-gyC"/>
                                     <constraint firstItem="zNX-09-5j3" firstAttribute="top" secondItem="GEf-9D-9Js" secondAttribute="top" constant="42" id="Fkk-uZ-cZC"/>
@@ -709,7 +709,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLz-IP-r09">
-                                                    <rect key="frame" x="5" y="5" width="310" height="55"/>
+                                                    <rect key="frame" x="5" y="5" width="404" height="55"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibv-fq-0zN" customClass="DesignView" customModule="HealthyPost" customModuleProvider="target">
                                                             <rect key="frame" x="10" y="10" width="7" height="35"/>
@@ -770,7 +770,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calorie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lql-tK-Zla">
-                                                    <rect key="frame" x="263.66666666666669" y="15" width="41.333333333333314" height="35"/>
+                                                    <rect key="frame" x="357.66666666666669" y="15" width="41.333333333333314" height="35"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1212,7 +1212,7 @@
                                 <rect key="frame" x="15" y="279.33333333333331" width="384" height="177.33333333333331"/>
                                 <string key="text">FooDZilla is an app where you can create your personalized food list . App counts how many posts are healthy post and how many are unhealthy, it demonstrates  that data  and shows you that progress in the chart</string>
                                 <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="22"/>
-                                <color key="textColor" red="0.2435251772" green="0.36967918280000001" blue="0.29410862920000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
