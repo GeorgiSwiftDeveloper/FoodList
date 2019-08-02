@@ -36,10 +36,6 @@ class CreateandUpdateNoteVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        var myMutableString = NSMutableAttributedString()
-//        myMutableString = NSMutableAttributedString(string: creatOrEditnoteLabel.text as! String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 30)!])
-//         myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.2471, green: 0.549, blue: 0, alpha: 1.0) , range: NSRange(location:3,length:1))
-//         creatOrEditnoteLabel.attributedText = myMutableString
         chooseTimeBtn.setTitle("\(DateService.service.pickerDate(date: selectedTime ))", for: .normal)
         picker.date = selectedTime
         setUIforEdit()

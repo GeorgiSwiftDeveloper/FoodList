@@ -17,18 +17,21 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var appNameLbl: UILabel!
     @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var notePostTableView: UITableView!
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var cardViewHeightLayout: NSLayoutConstraint!
+    @IBOutlet weak var contentViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     
     let healthFood = [BestFoodList(imageName: "image1.png", title: "Avocado"),
-                                BestFoodList(imageName: "image3.jpg", title: "Been"),
+                                BestFoodList(imageName: "image2.jpg", title: "Bean"),
                                 BestFoodList(imageName: "image3.jpg", title: "Chicken"),
                                 BestFoodList(imageName: "image4.jpg", title: "Fish"),
-                                BestFoodList(imageName: "image5.jpg", title: "Broccoli")]
+                                BestFoodList(imageName: "image.jpg", title: "Broccoli"),
+                                BestFoodList(imageName: "image7.jpg", title: "Soup")]
     
      var healthModelData = [HealthModel]()
      var coreDataModel = CoreDataStackClass()
@@ -36,19 +39,12 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-        var myMutableString = NSMutableAttributedString()
-        myMutableString = NSMutableAttributedString(string: appNameLbl.text as! String, attributes: [NSAttributedString.Key.font:UIFont(name: "Georgia", size: 40)!])
-        myMutableString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor(red: 0.2471, green: 0.549, blue: 0, alpha: 1.0) , range: NSRange(location:3,length:1))
-        appNameLbl.attributedText = myMutableString
-       
         fetchDataByDate()
         getChartViewDataFromCoplitionHandler()
         chartViewDesingFunction()
         notePostTableView.reloadData()
     }
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -59,6 +55,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         DispatchQueue.main.async {
             self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
             self.view.layoutIfNeeded()
+            
         }
     }
     
@@ -157,9 +154,13 @@ class MainVC: UIViewController, ChartViewDelegate {
             self.notePostTableView.deleteRows(at: [indexPath], with: .automatic)
             self.getChartViewDataFromCoplitionHandler()
             self.chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
-            
+            if self.healthModelData.count == 0 {
+                 self.contentViewHeightLayout.constant = 950
+                self.notePostTableView.reloadData()
+            }
             DispatchQueue.main.async {
                 self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
+                self.contentViewHeightLayout.constant -= 20
                 self.view.layoutIfNeeded()
             }
             completionHandler(true)
@@ -193,13 +194,14 @@ class MainVC: UIViewController, ChartViewDelegate {
         formatter.dateFormat = "MM/dd/yyyy"
         do {
             healthModelData = try (managedContext?.fetch(request))!
+            print(healthModelData.count)
             for item in healthModelData {
                 item.value(forKey: "userComment")
                 item.value(forKey: "postTime")
                 item.value(forKey: "selectedType")
                 item.value(forKey: "brandName")
                 item.value(forKey: "calorie")
-                
+                self.contentViewHeightLayout.constant += 15
             }
         } catch let error as NSError {
             print(error.description)
