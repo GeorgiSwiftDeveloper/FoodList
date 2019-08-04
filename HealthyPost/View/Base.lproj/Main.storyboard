@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDu-2M-SyQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9MD-q3-bW3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,6 +42,7 @@
                                                 <state key="normal" image="add-2"/>
                                                 <connections>
                                                     <action selector="addNoteBtnAction:" destination="jYQ-8a-FMI" eventType="touchUpInside" id="Pc2-Dq-AGb"/>
+                                                    <segue destination="Zim-aV-fmb" kind="show" identifier="CreateNoteVC" id="MsH-m9-zdf"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="THURSDAY, MARCH 21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="R22-Sg-GQh">
@@ -342,17 +343,16 @@
                         <outlet property="contentViewHeightLayout" destination="wyx-qR-gVf" id="ho2-lE-1Mh"/>
                         <outlet property="currentDateLabel" destination="R22-Sg-GQh" id="Xns-jw-KM3"/>
                         <outlet property="notePostTableView" destination="gb5-yR-9ga" id="ktB-tH-6eu"/>
-                        <segue destination="myL-UL-9g4" kind="show" identifier="CreateMealVC" id="Nhq-fh-BR9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6s-Mt-mFQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-581.15942028985512" y="-1015.7608695652175"/>
+            <point key="canvasLocation" x="-1196" y="-1041"/>
         </scene>
         <!--FooDZilla-->
         <scene sceneID="iSk-kh-BZq">
             <objects>
-                <viewController id="Zim-aV-fmb" customClass="CreateNoteVC" customModule="HealthyPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateNoteVC" id="Zim-aV-fmb" customClass="CreateNoteVC" customModule="HealthyPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4T4-JC-nhK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,7 +372,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fIr-dO-HRT">
-                                <rect key="frame" x="0.0" y="64" width="414" height="642"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="686"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="70" id="hji-Tx-fia" customClass="SettingsTableViewCell" customModule="HealthyPost" customModuleProvider="target">
@@ -406,12 +406,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvs-QK-Jnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="289.85507246376812" y="-1834.2391304347827"/>
+            <point key="canvasLocation" x="1184" y="-1041"/>
         </scene>
-        <!--Createand Update NoteVC-->
+        <!--View Controller-->
         <scene sceneID="kKl-gk-Uus">
             <objects>
-                <viewController storyboardIdentifier="CreateNoteVC" id="myL-UL-9g4" customClass="CreateandUpdateNoteVC" customModule="HealthyPost" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="myL-UL-9g4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I2k-3N-QXr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -636,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0i-c6-2L3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1097.1014492753625" y="-1487.771739130435"/>
+            <point key="canvasLocation" x="2488" y="-1616"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="3ya-gy-ttk">
@@ -752,7 +752,7 @@
                                 <state key="normal" image="add-2"/>
                                 <connections>
                                     <action selector="createNoteBtn:" destination="2xG-xf-vKA" eventType="touchUpInside" id="AIC-Y6-VgP"/>
-                                    <segue destination="myL-UL-9g4" kind="show" identifier="CreateNoteVC" id="CMC-4j-2fo"/>
+                                    <segue destination="Zim-aV-fmb" kind="show" identifier="CreateNoteVC" id="MJo-GY-Q0C"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HA4-dG-zSj">
@@ -1185,7 +1185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ej3-8o-qhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1775" y="-1042"/>
+            <point key="canvasLocation" x="3159" y="-1615"/>
         </scene>
         <!--Log InVC-->
         <scene sceneID="Vvo-wD-gGv">
@@ -1256,7 +1256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4j-NW-kW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1394" y="-1041"/>
+            <point key="canvasLocation" x="-2081" y="-1041"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="OUP-Vz-04N">
@@ -1286,7 +1286,7 @@
         <image name="smackProfileIcon" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Nhq-fh-BR9"/>
+        <segue reference="MsH-m9-zdf"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

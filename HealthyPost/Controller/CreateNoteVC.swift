@@ -160,5 +160,37 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
 
     @IBAction func saveBtnAction(_ sender: Any) {
+        if descText.text != "" && postType != nil {
+            self.saveFoodNote()
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func saveFoodNote() {
+        if healthEditReciver == nil  && descText.text != ""  && postType != nil  {
+            
+            let managedContext = coreDataModel.persistentContainer.viewContext
+            let entity =  NSEntityDescription.entity(forEntityName: "HealthModel", in:managedContext)
+            let item = NSManagedObject(entity: entity!, insertInto:managedContext)
+            item.setValue(datePicker.date, forKey: "postTime")
+            item.setValue(descText.text, forKey: "brandName")
+            item.setValue(commentText.text, forKey: "userComment")
+            item.setValue(postType?.rawValue, forKey: "selectedType")
+            item.setValue(calorieTxt.text, forKey: "calorie")
+        }else {
+            healthEditReciver?.brandName = self.descText.text
+            healthEditReciver?.userComment = self.commentText.text
+            healthEditReciver?.calorie = self.calorieTxt.text
+            healthEditReciver?.postTime = datePicker.date
+            healthEditReciver?.selectedType = postType?.rawValue
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        do {
+            let managedContext = coreDataModel.persistentContainer.viewContext
+            try managedContext.save()
+        }catch {
+            print("Can not save note \(error)")
+        }
     }
 }

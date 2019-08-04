@@ -129,9 +129,9 @@ class MainVC: UIViewController, ChartViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CreateMealVC" {
-            let destVC = segue.destination as! CreateandUpdateNoteVC
-            destVC.health = sender as? HealthModel
+        if segue.identifier == "CreateNoteVC" {
+            let destVC = segue.destination as! CreateNoteVC
+            destVC.healthEditReciver = sender as? HealthModel
             
         }
     }
@@ -143,7 +143,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         let editAction =  UIContextualAction(style: .normal, title: "Edit", handler: { (action,view,completionHandler ) in
             let healthPost = self.healthModelData[indexPath.row]
             
-            self.performSegue(withIdentifier: "CreateMealVC", sender: healthPost)
+            self.performSegue(withIdentifier: "CreateNoteVC", sender: healthPost)
             completionHandler(true)
         })
         editAction.backgroundColor =  #colorLiteral(red: 0, green: 0.5, blue: 0, alpha: 1)
