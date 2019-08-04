@@ -134,7 +134,6 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             cell?.textLabel?.text = "Select your choice"
             segmentedControl.frame = CGRect(x: 240, y: 10, width: 150, height: 30)
             segmentedControl.addTarget(self, action: #selector(selectedPostTypeAction(_:)), for: .valueChanged)
-            segmentedControl.selectedSegmentIndex = 0
             segmentedControl.layer.cornerRadius = 5
             segmentedControl.backgroundColor = .white
             segmentedControl.tintColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
