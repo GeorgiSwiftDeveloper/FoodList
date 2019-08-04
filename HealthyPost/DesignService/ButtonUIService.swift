@@ -12,11 +12,11 @@ class ButtonUIService: UIButton {
  
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.cornerRadius = 10
+        layer.cornerRadius = 2
 //        self.setTitleColor(UIColor.white, for: .normal)
         layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         layer.shadowRadius = 2
-        layer.shadowOpacity = 1
+        layer.shadowOpacity = 2
     }
     
     class ButtonHeaderView: ButtonUIService {

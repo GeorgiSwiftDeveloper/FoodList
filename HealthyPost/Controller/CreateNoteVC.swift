@@ -18,8 +18,10 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let datePicker = UIDatePicker()
     let segmentedControl = UISegmentedControl()
     
+    
     var coreDataModel = CoreDataStackClass()
     var postType: PostType? = nil
+    var selectedTime = Date()
     var healthEditReciver: HealthModel?
     
     
@@ -31,6 +33,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         segmentedControl.insertSegment(withTitle: "YES", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "NO", at: 1, animated: true)
         setUIforEdit()
+        saveFoodNote()
     }
     
     
@@ -40,6 +43,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.calorieTxt.text = healthEditReciver?.calorie
         if let time = healthEditReciver?.postTime {
            datePicker.date = time
+        }
             if healthEditReciver?.selectedType == "bad" {
                 segmentedControl.selectedSegmentIndex = 1
                 segmentedControl.tintColor = #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 0.8394243673)
@@ -49,7 +53,6 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 segmentedControl.tintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
                 postType = .healthy
             }
-        }
         }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -118,6 +121,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             calorieTxt.placeholder = "ex 200 cl"
             calorieTxt.font = UIFont.systemFont(ofSize: 15)
             calorieTxt.delegate = self
+            calorieTxt.keyboardType = UIKeyboardType.numberPad
             calorieTxt.textAlignment = .center
             //cell.contentView.addSubview(tf)
             cell?.addSubview(calorieTxt)
@@ -126,7 +130,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         case 3:
              tableView.rowHeight = 180
              datePicker.frame = CGRect(x: 0, y: 0, width: 414, height: 180)
-             datePicker.date = Date()
+             datePicker.date = selectedTime
              cell?.addSubview(datePicker)
             break
         case 4:
@@ -164,10 +168,12 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             self.dismiss(animated: true, completion: nil)
         }
     }
+    @IBAction func cancelBtnAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func saveFoodNote() {
-        if healthEditReciver == nil  && descText.text != ""  && postType != nil  {
-            
+        if  healthEditReciver == nil &&  descText.text != ""  && postType != nil  {
             let managedContext = coreDataModel.persistentContainer.viewContext
             let entity =  NSEntityDescription.entity(forEntityName: "HealthModel", in:managedContext)
             let item = NSManagedObject(entity: entity!, insertInto:managedContext)
@@ -176,20 +182,29 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             item.setValue(commentText.text, forKey: "userComment")
             item.setValue(postType?.rawValue, forKey: "selectedType")
             item.setValue(calorieTxt.text, forKey: "calorie")
-        }else {
-            healthEditReciver?.brandName = self.descText.text
-            healthEditReciver?.userComment = self.commentText.text
-            healthEditReciver?.calorie = self.calorieTxt.text
-            healthEditReciver?.postTime = datePicker.date
-            healthEditReciver?.selectedType = postType?.rawValue
+            do {
+                try managedContext.save()
+            }catch {
+                print("Can not save note \(error)")
+            }
+        }
+        if healthEditReciver != nil {
+            self.healthEditReciver?.brandName = descText.text
+            self.healthEditReciver?.userComment = commentText.text
+            self.healthEditReciver?.postTime = datePicker.date
+            self.healthEditReciver?.selectedType = postType?.rawValue
+            self.healthEditReciver?.calorie = calorieTxt.text
+            save()
             self.dismiss(animated: true, completion: nil)
         }
-        
+    }
+    
+    func save(){
         do {
-            let managedContext = coreDataModel.persistentContainer.viewContext
-            try managedContext.save()
-        }catch {
-            print("Can not save note \(error)")
+            try self.healthEditReciver?.managedObjectContext?.save()
+        } catch  {
+            print("error")
         }
+        
     }
 }
