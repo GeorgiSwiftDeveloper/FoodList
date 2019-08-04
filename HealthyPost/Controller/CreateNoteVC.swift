@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
    
     
     let descText = UITextField()
@@ -17,13 +18,54 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let datePicker = UIDatePicker()
     let segmentedControl = UISegmentedControl()
     
-    let sections = ["Descriiption", "Comment", "Calorie","Time","Is it Healthy ? "]
+    var coreDataModel = CoreDataStackClass()
+    var postType: PostType? = nil
+    var healthEditReciver: HealthModel?
+    
+    
+    
+    let sections = ["Descriiption", "Comment(Optional)", "Calorie(Optional)","Time","Is it Healthy ? "]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedControl.insertSegment(withTitle: "YES", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "NO", at: 1, animated: true)
-      
+        setUIforEdit()
+    }
+    
+    
+    func setUIforEdit() {
+        self.descText.text = healthEditReciver?.brandName
+        self.commentText.text = healthEditReciver?.userComment
+        self.calorieTxt.text = healthEditReciver?.calorie
+        if let time = healthEditReciver?.postTime {
+           datePicker.date = time
+            if healthEditReciver?.selectedType == "bad" {
+                segmentedControl.selectedSegmentIndex = 1
+                segmentedControl.tintColor = #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 0.8394243673)
+                postType = .notHealthy
+            }else if healthEditReciver?.selectedType == "good"{
+                segmentedControl.selectedSegmentIndex = 0
+                segmentedControl.tintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+                postType = .healthy
+            }
+        }
+        }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == calorieTxt {
+        let aSet = NSCharacterSet(charactersIn:"0123456789").inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        return string == numberFiltered
+        }
+        return true
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,6 +86,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UITableViewCell
@@ -53,6 +96,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             descText.frame = CGRect(x: 0, y: 0, width: 414, height: 70)
             descText.placeholder = "Enter product descriptiion"
             descText.font = UIFont.systemFont(ofSize: 15)
+            descText.delegate = self
             descText.textAlignment = .center
             //cell.contentView.addSubview(tf)
             cell?.addSubview(descText)
@@ -62,6 +106,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             commentText.frame = CGRect(x: 0, y: 0, width: 414, height: 70)
             commentText.placeholder = "Enter product comment here"
             commentText.font = UIFont.systemFont(ofSize: 15)
+            commentText.delegate = self
             commentText.textAlignment = .center
             //cell.contentView.addSubview(tf)
             cell?.addSubview(commentText)
@@ -72,20 +117,23 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             calorieTxt.frame = CGRect(x: 0, y: 0, width: 414, height: 40)
             calorieTxt.placeholder = "ex 200 cl"
             calorieTxt.font = UIFont.systemFont(ofSize: 15)
+            calorieTxt.delegate = self
             calorieTxt.textAlignment = .center
             //cell.contentView.addSubview(tf)
             cell?.addSubview(calorieTxt)
 
             break
         case 3:
-             tableView.rowHeight = 150
-             datePicker.frame = CGRect(x: 0, y: 0, width: 414, height: 150)
+             tableView.rowHeight = 180
+             datePicker.frame = CGRect(x: 0, y: 0, width: 414, height: 180)
              datePicker.date = Date()
              cell?.addSubview(datePicker)
             break
         case 4:
             tableView.rowHeight = 50
-            segmentedControl.frame = CGRect(x: 135, y: 10, width: 150, height: 30)
+            cell?.textLabel?.text = "Select your choice"
+            segmentedControl.frame = CGRect(x: 240, y: 10, width: 150, height: 30)
+            segmentedControl.addTarget(self, action: #selector(selectedPostTypeAction(_:)), for: .valueChanged)
             segmentedControl.selectedSegmentIndex = 0
             segmentedControl.layer.cornerRadius = 5
             segmentedControl.backgroundColor = .white
@@ -97,5 +145,20 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         return cell!
     }
+    
+    @objc func selectedPostTypeAction(_ sender: UISegmentedControl) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            postType = .healthy
+            segmentedControl.tintColor = #colorLiteral(red: 0, green: 0.5628422499, blue: 0.3188166618, alpha: 1)
+        case 1:
+            postType = .notHealthy
+            segmentedControl.tintColor = #colorLiteral(red: 0.5807225108, green: 0.066734083, blue: 0, alpha: 0.8394243673)
+        default:
+            postType = nil
+        }
+    }
 
+    @IBAction func saveBtnAction(_ sender: Any) {
+    }
 }

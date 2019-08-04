@@ -14,9 +14,9 @@ class ButtonUIService: UIButton {
         super.awakeFromNib()
         layer.cornerRadius = 10
 //        self.setTitleColor(UIColor.white, for: .normal)
-        layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        layer.shadowRadius = 4
-        layer.shadowOpacity = 0.3
+        layer.shadowColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        layer.shadowRadius = 2
+        layer.shadowOpacity = 1
     }
     
     class ButtonHeaderView: ButtonUIService {

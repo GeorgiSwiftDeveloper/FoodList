@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zim-aV-fmb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xDu-2M-SyQ">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -349,17 +349,30 @@
             </objects>
             <point key="canvasLocation" x="-581.15942028985512" y="-1015.7608695652175"/>
         </scene>
-        <!--Create NoteVC-->
+        <!--FooDZilla-->
         <scene sceneID="iSk-kh-BZq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cvs-QK-Jnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Zim-aV-fmb" customClass="CreateNoteVC" customModule="HealthyPost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4T4-JC-nhK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fIr-dO-HRT">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soT-EH-EX3" customClass="ButtonUIService" customModule="HealthyPost" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="666" width="414" height="70"/>
+                                <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="lEm-Zg-REF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveBtnAction:" destination="Zim-aV-fmb" eventType="touchUpInside" id="BZD-BN-9Tf"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="fIr-dO-HRT">
+                                <rect key="frame" x="0.0" y="64" width="414" height="642"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="70" id="hji-Tx-fia" customClass="SettingsTableViewCell" customModule="HealthyPost" customModuleProvider="target">
@@ -379,16 +392,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fIr-dO-HRT" firstAttribute="leading" secondItem="UPz-oQ-G28" secondAttribute="leading" id="Eg8-1r-VQb"/>
-                            <constraint firstItem="UPz-oQ-G28" firstAttribute="trailing" secondItem="fIr-dO-HRT" secondAttribute="trailing" id="brr-hh-GK1"/>
-                            <constraint firstItem="UPz-oQ-G28" firstAttribute="bottom" secondItem="fIr-dO-HRT" secondAttribute="bottom" id="mzv-Ht-gg6"/>
-                            <constraint firstItem="fIr-dO-HRT" firstAttribute="top" secondItem="4T4-JC-nhK" secondAttribute="top" id="pph-yC-RKc"/>
+                            <constraint firstItem="soT-EH-EX3" firstAttribute="trailing" secondItem="UPz-oQ-G28" secondAttribute="trailing" id="CMY-8B-mt6"/>
+                            <constraint firstItem="UPz-oQ-G28" firstAttribute="bottom" secondItem="fIr-dO-HRT" secondAttribute="bottom" constant="30" id="ThI-Pf-gYs"/>
+                            <constraint firstAttribute="bottom" secondItem="soT-EH-EX3" secondAttribute="bottom" id="ULq-VV-bNF"/>
+                            <constraint firstItem="fIr-dO-HRT" firstAttribute="leading" secondItem="UPz-oQ-G28" secondAttribute="leading" id="UfL-BH-cHt"/>
+                            <constraint firstItem="soT-EH-EX3" firstAttribute="leading" secondItem="UPz-oQ-G28" secondAttribute="leading" id="cDV-Jy-nKn"/>
+                            <constraint firstItem="fIr-dO-HRT" firstAttribute="trailing" secondItem="UPz-oQ-G28" secondAttribute="trailing" id="dNW-W1-neD"/>
+                            <constraint firstItem="fIr-dO-HRT" firstAttribute="top" secondItem="UPz-oQ-G28" secondAttribute="top" id="jfG-QW-uqf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UPz-oQ-G28"/>
                     </view>
+                    <navigationItem key="navigationItem" title="FooDZilla" id="pQS-35-aj8"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvs-QK-Jnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-616" y="-1834"/>
+            <point key="canvasLocation" x="289.85507246376812" y="-1834.2391304347827"/>
         </scene>
         <!--Createand Update NoteVC-->
         <scene sceneID="kKl-gk-Uus">
@@ -618,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F0i-c6-2L3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="189.85507246376812" y="-1487.771739130435"/>
+            <point key="canvasLocation" x="1097.1014492753625" y="-1487.771739130435"/>
         </scene>
         <!--Delegate-->
         <scene sceneID="3ya-gy-ttk">
@@ -1239,6 +1257,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4j-NW-kW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1394" y="-1041"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="OUP-Vz-04N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xDu-2M-SyQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="alk-Sg-LZx">
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Zim-aV-fmb" kind="relationship" relationship="rootViewController" id="PS9-rd-4K3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CoE-vV-Nei" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617.39130434782612" y="-1834.2391304347827"/>
         </scene>
     </scenes>
     <resources>
