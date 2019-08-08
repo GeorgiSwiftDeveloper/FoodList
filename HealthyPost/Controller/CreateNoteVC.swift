@@ -12,6 +12,7 @@ import CoreData
 class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
    
     
+    
     let descText = UITextField()
     let commentText = UITextField()
     let calorieTxt = UITextField()
@@ -34,6 +35,12 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         segmentedControl.insertSegment(withTitle: "NO", at: 1, animated: true)
         setUIforEdit()
         saveFoodNote()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     
@@ -83,7 +90,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont(name: "Verdana", size: 12)!
-        header.textLabel?.textColor = UIColor.black
+        header.textLabel?.textColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -92,10 +99,11 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UITableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UITableViewCell
         tableView.rowHeight = 70
         switch indexPath.section {
         case 0:
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: nil)
             descText.frame = CGRect(x: 0, y: 0, width: 414, height: 70)
             descText.placeholder = "Enter product descriptiion"
             descText.font = UIFont.systemFont(ofSize: 15)
@@ -106,6 +114,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             break
         case 1:
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: nil)
             commentText.frame = CGRect(x: 0, y: 0, width: 414, height: 70)
             commentText.placeholder = "Enter product comment here"
             commentText.font = UIFont.systemFont(ofSize: 15)
@@ -116,6 +125,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
             break
         case 2:
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: nil)
             tableView.rowHeight = 40
             calorieTxt.frame = CGRect(x: 0, y: 0, width: 414, height: 40)
             calorieTxt.placeholder = "ex 200 cl"
@@ -128,6 +138,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 
             break
         case 3:
+            
              tableView.rowHeight = 180
              datePicker.frame = CGRect(x: 0, y: 0, width: 414, height: 180)
              datePicker.date = selectedTime
@@ -148,6 +159,9 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         return cell!
     }
+    
+    
+    
     
     @objc func selectedPostTypeAction(_ sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {

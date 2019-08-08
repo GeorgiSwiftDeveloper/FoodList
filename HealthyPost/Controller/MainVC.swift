@@ -17,41 +17,43 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
+     var label = UILabel()
+    
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var appNameLbl: UILabel!
     @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var notePostTableView: UITableView!
     @IBOutlet weak var currentDateLabel: UILabel!
     @IBOutlet weak var cardViewHeightLayout: NSLayoutConstraint!
     @IBOutlet weak var contentViewHeightLayout: NSLayoutConstraint!
-    @IBOutlet weak var collectionView: UICollectionView!
-    
-    let healthFood = [BestFoodList(imageName: "image1.png", title: "Avocado"),
-                                BestFoodList(imageName: "image2.jpg", title: "Bean"),
-                                BestFoodList(imageName: "image3.jpg", title: "Chicken"),
-                                BestFoodList(imageName: "image4.jpg", title: "Fish"),
-                                BestFoodList(imageName: "image.jpg", title: "Broccoli"),
-                                BestFoodList(imageName: "image7.jpg", title: "Soup")]
+    @IBOutlet weak var userGoalLbl: UILabel!
     
      var healthModelData = [HealthModel]()
+     var userGoal   = [Goal]()
+    
      var coreDataModel = CoreDataStackClass()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchDataByDate()
+        fetchGoal()
         getChartViewDataFromCoplitionHandler()
         chartViewDesingFunction()
         notePostTableView.reloadData()
+        addlabel()
     }
+    
+    
 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchDataByDate()
+        fetchGoal()
         getChartViewDataFromCoplitionHandler()
         notePostTableView.reloadData()
         currentDateLabel.text = "\(DateService.service.crrentDateTime())"
+        addlabel()
         DispatchQueue.main.async {
             self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
             self.view.layoutIfNeeded()
@@ -62,9 +64,25 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override  func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
+        addlabel()
         DispatchQueue.main.async{
             self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
             self.view.layoutIfNeeded()
+        }
+    }
+    
+    
+    func addlabel() {
+        if healthModelData.count == 0 {
+            label.text = "Add your daily post here"
+            label.frame = CGRect(x: 70, y: 300, width: 300, height: 60)
+            label.textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+            label.font = UIFont(name: "Georgia", size: 20)
+            label.font = UIFont.boldSystemFont(ofSize: 25)
+            label.isHidden = false
+            view.addSubview(label)
+        }else{
+            label.isHidden = true
         }
     }
     
@@ -90,7 +108,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         //Xaxis Label
         let xAxis: XAxis? = chartView.xAxis
         xAxis?.labelPosition = .bottom
-        xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
         xAxis?.labelFont = UIFont(name: "Helvetica", size: 12)!
         xAxis?.drawGridLinesEnabled = false
         chartView.rightAxis.drawLabelsEnabled = false
@@ -112,15 +130,22 @@ class MainVC: UIViewController, ChartViewDelegate {
         chartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
-    public func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight)
-    {
-        print("chartValueSelected : x = \(highlight)")
-        
-    }
+    
+    
+    
+//    public func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight)
+//    {
+//        print("chartValueSelected : x = \(highlight)")
+//
+//    }
+    
+    
     @IBAction func calendarVCBtn(_ sender: Any) {
        guard let storyboard = storyboard?.instantiateViewController(withIdentifier: "CalendarVC") else {return}
         self.present(storyboard, animated: true, completion: nil)
     }
+    
+    
     
     
     @IBAction func addNoteBtnAction(_ sender: Any) {
@@ -155,9 +180,10 @@ class MainVC: UIViewController, ChartViewDelegate {
             self.getChartViewDataFromCoplitionHandler()
             self.chartView.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             if self.healthModelData.count == 0 {
-                 self.contentViewHeightLayout.constant = 1000
+                 self.contentViewHeightLayout.constant = 800
                 self.notePostTableView.reloadData()
             }
+            self.addlabel()
             DispatchQueue.main.async {
                 self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
                 self.contentViewHeightLayout.constant -= 20
@@ -174,8 +200,6 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     
     func fetchDataByDate() {
-//        let managedContext = coreDataModel.persistentContainer.viewContext
-//        let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")
         let request : NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
         var calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
@@ -194,7 +218,6 @@ class MainVC: UIViewController, ChartViewDelegate {
         formatter.dateFormat = "MM/dd/yyyy"
         do {
             healthModelData = try (managedContext?.fetch(request))!
-            print(healthModelData.count)
             for item in healthModelData {
                 item.value(forKey: "userComment")
                 item.value(forKey: "postTime")
@@ -208,9 +231,20 @@ class MainVC: UIViewController, ChartViewDelegate {
         }
     }
     
+    func fetchGoal() {
+         let request : NSFetchRequest<Goal> = Goal.fetchRequest()
+        do {
+            userGoal = try (managedContext?.fetch(request))!
+            for goals in userGoal {
+                userGoalLbl.text =  goals.value(forKey: "goalText") as? String
+            }
+        } catch  {
+            print(error.localizedDescription)
+        }
+    }
+    
     
     func removePostRow(atIndexPath indexPath: IndexPath) {
-//        let managedContext = coreDataModel.persistentContainer.viewContext
         managedContext?.delete(healthModelData[indexPath.row])
         do{
             try managedContext?.save()
@@ -239,20 +273,5 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
-}
-
-extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return healthFood.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as? ImageCollectionView
-        let topFoodList = healthFood[indexPath.row]
-        cell?.configureCell(foodList: topFoodList)
-        return cell!
-    }
-    
     
 }
