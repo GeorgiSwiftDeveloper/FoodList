@@ -151,11 +151,13 @@ class MainVC: UIViewController, ChartViewDelegate {
     @IBAction func addNoteBtnAction(_ sender: Any) {
         guard let storyboard = storyboard?.instantiateViewController(withIdentifier: "CreateNoteVC") else {return}
         self.present(storyboard, animated: true, completion: nil)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateNoteVC" {
             let destVC = segue.destination as! CreateNoteVC
+            
             destVC.healthEditReciver = sender as? HealthModel
             
         }
@@ -167,7 +169,6 @@ class MainVC: UIViewController, ChartViewDelegate {
         
         let editAction =  UIContextualAction(style: .normal, title: "Edit", handler: { (action,view,completionHandler ) in
             let healthPost = self.healthModelData[indexPath.row]
-            
             self.performSegue(withIdentifier: "CreateNoteVC", sender: healthPost)
             completionHandler(true)
         })
