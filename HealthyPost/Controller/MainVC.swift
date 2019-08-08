@@ -12,10 +12,10 @@ import CoreData
 import FSCalendar
 import Charts
 
+    let managedContexts = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 class MainVC: UIViewController, ChartViewDelegate {
 
     
-    let managedContext = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
      var label = UILabel()
     
@@ -35,7 +35,13 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchDataByDate()
+        ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
+            if let healthModelo = healthModel {
+                     self.healthModelData = healthModelo
+                    self.contentViewHeightLayout.constant += 15
+                     self.notePostTableView.reloadData()
+            }
+        }
         fetchGoal()
         getChartViewDataFromCoplitionHandler()
         chartViewDesingFunction()
@@ -48,7 +54,13 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchDataByDate()
+        ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
+            if let healthModel = healthModel {
+                self.healthModelData = healthModel
+                    self.contentViewHeightLayout.constant += 15
+                    self.notePostTableView.reloadData()
+            }
+        }
         fetchGoal()
         getChartViewDataFromCoplitionHandler()
         notePostTableView.reloadData()
@@ -87,7 +99,7 @@ class MainVC: UIViewController, ChartViewDelegate {
     }
     
     func getChartViewDataFromCoplitionHandler() {
-        ChartViewModel.getChartViewData.updateDataByWeek { (chartData, error) in
+        ReciveDataBackFromCoreData.getChartViewData.updateDataByWeek { (chartData, error) in
             if let chartData = chartData {
                 DispatchQueue.main.async {
                     self.chartView.data = chartData
@@ -199,43 +211,10 @@ class MainVC: UIViewController, ChartViewDelegate {
     }
     
     
-    
-    func fetchDataByDate() {
-        let request : NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
-        var calendar = Calendar.current
-        calendar.timeZone = NSTimeZone.local
-        // Get today's beginning & end
-        let dateFrom = calendar.startOfDay(for: Date())
-        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)
-        let frompredicate = NSPredicate(format:"postTime > %@", dateFrom as CVarArg)
-        let toPredicate = NSPredicate(format: "postTime < %@", dateTo! as NSDate)
-        let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [frompredicate, toPredicate])
-        request.predicate = datePredicate
-        
-        let sectionSortDescriptor = NSSortDescriptor(key: "postTime", ascending: true)
-        let sortDescriptors = [sectionSortDescriptor]
-        request.sortDescriptors = sortDescriptors
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
-        do {
-            healthModelData = try (managedContext?.fetch(request))!
-            for item in healthModelData {
-                item.value(forKey: "userComment")
-                item.value(forKey: "postTime")
-                item.value(forKey: "selectedType")
-                item.value(forKey: "brandName")
-                item.value(forKey: "calorie")
-                self.contentViewHeightLayout.constant += 15
-            }
-        } catch let error as NSError {
-            print(error.description)
-        }
-    }
-    
     func fetchGoal() {
          let request : NSFetchRequest<Goal> = Goal.fetchRequest()
         do {
-            userGoal = try (managedContext?.fetch(request))!
+            userGoal = try ((managedContexts?.fetch(request))!)
             for goals in userGoal {
                 userGoalLbl.text =  goals.value(forKey: "goalText") as? String
             }
@@ -245,10 +224,11 @@ class MainVC: UIViewController, ChartViewDelegate {
     }
     
     
+
     func removePostRow(atIndexPath indexPath: IndexPath) {
-        managedContext?.delete(healthModelData[indexPath.row])
+        managedContexts?.delete(healthModelData[indexPath.row])
         do{
-            try managedContext?.save()
+            try managedContexts?.save()
         }catch {
             print("Could not remove post \(error.localizedDescription)")
         }

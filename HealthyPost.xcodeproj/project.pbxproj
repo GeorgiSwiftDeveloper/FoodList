@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		657701C2E6496425A85E203E /* Pods_HealthyPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25B513483C49656CA9B82396 /* Pods_HealthyPost.framework */; };
 		6A05AEEB224220AB00DF295B /* DesignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEEA224220AB00DF295B /* DesignView.swift */; };
-		6A05AEF0224299AA00DF295B /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEEF224299AA00DF295B /* UpdateView.swift */; };
 		6A05AEF922442A5800DF295B /* DateSarvice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A05AEF822442A5800DF295B /* DateSarvice.swift */; };
 		6A16A8B522E7CABA0021C12A /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A16A8B422E7CABA0021C12A /* NoteTableViewCell.swift */; };
 		6A1824CB22ADE4D700A485DD /* ColorPickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1824CA22ADE4D700A485DD /* ColorPickerClass.swift */; };
@@ -26,8 +25,6 @@
 		6A5E1D2622ED2585003D4BDF /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5E1D2522ED2585003D4BDF /* NoteTableViewCell.swift */; };
 		6A5E1D2822ED26BD003D4BDF /* LogInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A5E1D2722ED26BC003D4BDF /* LogInVC.swift */; };
 		6A61E87A22AC2AD9003CA33E /* ButtonRoundService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E87922AC2AD9003CA33E /* ButtonRoundService.swift */; };
-		6A61E88022AC59BC003CA33E /* CircleSelectedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A61E87F22AC59BC003CA33E /* CircleSelectedType.swift */; };
-		6A6D3F7C222B57B4001ABB05 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A6D3F7B222B57B4001ABB05 /* ImageService.swift */; };
 		6A80C8172255DC5C0044D04A /* CalendareTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A80C8162255DC5C0044D04A /* CalendareTableViewCell.swift */; };
 		6A86321A22F6A642000672BD /* CreateNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A86321922F6A642000672BD /* CreateNoteVC.swift */; };
 		6A95FE4E22235DCD00ED1A94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A95FE4D22235DCD00ED1A94 /* AppDelegate.swift */; };
@@ -35,7 +32,7 @@
 		6A95FE5722235DCF00ED1A94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A95FE5622235DCF00ED1A94 /* Assets.xcassets */; };
 		6A95FE5A22235DCF00ED1A94 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A95FE5822235DCF00ED1A94 /* LaunchScreen.storyboard */; };
 		6A95FE6322235E7900ED1A94 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */; };
-		6A99EFFB22EFA559005CAA64 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A99EFFA22EFA559005CAA64 /* ChartViewModel.swift */; };
+		6A99EFFB22EFA559005CAA64 /* ReciveDataBackFromCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A99EFFA22EFA559005CAA64 /* ReciveDataBackFromCoreData.swift */; };
 		6AA3DD842271470E009BFE94 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA3DD832271470E009BFE94 /* CalendarVC.swift */; };
 		6AA78C2622A1FB8F0087DC4D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AA78C2522A1FB8F0087DC4D /* NotificationCenter.framework */; };
 		6AA78C2922A1FB8F0087DC4D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA78C2822A1FB8F0087DC4D /* TodayViewController.swift */; };
@@ -43,7 +40,10 @@
 		6AA78C3022A1FB8F0087DC4D /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6AA78C2422A1FB8F0087DC4D /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6AA78C3722A1FBDB0087DC4D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */; };
 		6AB649B122FC829500652D59 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB649B022FC829500652D59 /* SettingsViewController.swift */; };
-		6AF71B7422F363A5008C9702 /* GetFoodListFromJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF71B7322F363A5008C9702 /* GetFoodListFromJson.swift */; };
+		6AB649B622FCCBCA00652D59 /* ColorPickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1824CA22ADE4D700A485DD /* ColorPickerClass.swift */; };
+		6AB649B822FCD27000652D59 /* UpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB649B722FCD26F00652D59 /* UpdateView.swift */; };
+		6AB649BA22FCD29600652D59 /* CircleSelectedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB649B922FCD29500652D59 /* CircleSelectedType.swift */; };
+		6AB649BC22FCD2A100652D59 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB649BB22FCD2A000652D59 /* ImageService.swift */; };
 		6AFCEB7722AEEEE000B3774E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFCEB7622AEEEE000B3774E /* CircleImage.swift */; };
 		6AFF58252226300100DE7FE6 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF58242226300100DE7FE6 /* PostType.swift */; };
 		6AFF58272226569E00DE7FE6 /* ButtonUIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFF58262226569E00DE7FE6 /* ButtonUIService.swift */; };
@@ -79,7 +79,6 @@
 		25B513483C49656CA9B82396 /* Pods_HealthyPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HealthyPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A7CF0F2FA98B5600A967546 /* Pods-HealthyPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HealthyPost.release.xcconfig"; path = "Pods/Target Support Files/Pods-HealthyPost/Pods-HealthyPost.release.xcconfig"; sourceTree = "<group>"; };
 		6A05AEEA224220AB00DF295B /* DesignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignView.swift; sourceTree = "<group>"; };
-		6A05AEEF224299AA00DF295B /* UpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
 		6A05AEF822442A5800DF295B /* DateSarvice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSarvice.swift; sourceTree = "<group>"; };
 		6A16A8B422E7CABA0021C12A /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		6A1824CA22ADE4D700A485DD /* ColorPickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerClass.swift; sourceTree = "<group>"; };
@@ -96,8 +95,6 @@
 		6A5E1D2522ED2585003D4BDF /* NoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		6A5E1D2722ED26BC003D4BDF /* LogInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInVC.swift; sourceTree = "<group>"; };
 		6A61E87922AC2AD9003CA33E /* ButtonRoundService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRoundService.swift; sourceTree = "<group>"; };
-		6A61E87F22AC59BC003CA33E /* CircleSelectedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleSelectedType.swift; sourceTree = "<group>"; };
-		6A6D3F7B222B57B4001ABB05 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		6A80C8162255DC5C0044D04A /* CalendareTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendareTableViewCell.swift; sourceTree = "<group>"; };
 		6A86321922F6A642000672BD /* CreateNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNoteVC.swift; sourceTree = "<group>"; };
 		6A95FE4A22235DCD00ED1A94 /* HealthyPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthyPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +104,7 @@
 		6A95FE5922235DCF00ED1A94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A95FE5B22235DCF00ED1A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A95FE6222235E7900ED1A94 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		6A99EFFA22EFA559005CAA64 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		6A99EFFA22EFA559005CAA64 /* ReciveDataBackFromCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciveDataBackFromCoreData.swift; sourceTree = "<group>"; };
 		6AA3DD832271470E009BFE94 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarVC.swift; path = ../View/CalendarVC.swift; sourceTree = "<group>"; };
 		6AA78C2422A1FB8F0087DC4D /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AA78C2522A1FB8F0087DC4D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
@@ -117,7 +114,9 @@
 		6AA78C3522A1FBA00087DC4D /* HealthyPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthyPost.entitlements; sourceTree = "<group>"; };
 		6AA78C3622A1FBC30087DC4D /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
 		6AB649B022FC829500652D59 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		6AF71B7322F363A5008C9702 /* GetFoodListFromJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodListFromJson.swift; sourceTree = "<group>"; };
+		6AB649B722FCD26F00652D59 /* UpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateView.swift; sourceTree = "<group>"; };
+		6AB649B922FCD29500652D59 /* CircleSelectedType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSelectedType.swift; sourceTree = "<group>"; };
+		6AB649BB22FCD2A000652D59 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		6AFCEB7622AEEEE000B3774E /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		6AFF58242226300100DE7FE6 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
 		6AFF58262226569E00DE7FE6 /* ButtonUIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUIService.swift; sourceTree = "<group>"; };
@@ -164,13 +163,12 @@
 				6A1824CE22ADE73600A485DD /* DesignSettingsCell.swift */,
 				6A1824D222AE50B000A485DD /* TextFieldPlaceholder.swift */,
 				6A05AEEA224220AB00DF295B /* DesignView.swift */,
-				6A05AEEF224299AA00DF295B /* UpdateView.swift */,
-				6A6D3F7B222B57B4001ABB05 /* ImageService.swift */,
 				6AFF58262226569E00DE7FE6 /* ButtonUIService.swift */,
 				6A5522CA2264F4120096D100 /* CardView.swift */,
 				6A61E87922AC2AD9003CA33E /* ButtonRoundService.swift */,
-				6A61E87F22AC59BC003CA33E /* CircleSelectedType.swift */,
-				6A1824CA22ADE4D700A485DD /* ColorPickerClass.swift */,
+				6AB649B722FCD26F00652D59 /* UpdateView.swift */,
+				6AB649B922FCD29500652D59 /* CircleSelectedType.swift */,
+				6AB649BB22FCD2A000652D59 /* ImageService.swift */,
 				6AFCEB7622AEEEE000B3774E /* CircleImage.swift */,
 			);
 			path = DesignService;
@@ -180,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				6A05AEF822442A5800DF295B /* DateSarvice.swift */,
+				6A1824CA22ADE4D700A485DD /* ColorPickerClass.swift */,
 			);
 			path = HelpService;
 			sourceTree = "<group>";
@@ -254,8 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				6A95FE6122235E7900ED1A94 /* DataModel.xcdatamodeld */,
-				6A99EFFA22EFA559005CAA64 /* ChartViewModel.swift */,
-				6AF71B7322F363A5008C9702 /* GetFoodListFromJson.swift */,
+				6A99EFFA22EFA559005CAA64 /* ReciveDataBackFromCoreData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -469,21 +467,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A237D9C22DC8855006291F2 /* GradientView.swift in Sources */,
-				6AF71B7422F363A5008C9702 /* GetFoodListFromJson.swift in Sources */,
+				6AB649B822FCD27000652D59 /* UpdateView.swift in Sources */,
 				6A1824CB22ADE4D700A485DD /* ColorPickerClass.swift in Sources */,
 				6A80C8172255DC5C0044D04A /* CalendareTableViewCell.swift in Sources */,
-				6A05AEF0224299AA00DF295B /* UpdateView.swift in Sources */,
 				6A86321A22F6A642000672BD /* CreateNoteVC.swift in Sources */,
 				6A39094022DC69E300D85ADC /* SWRevealViewController.m in Sources */,
-				6A61E88022AC59BC003CA33E /* CircleSelectedType.swift in Sources */,
 				6A05AEEB224220AB00DF295B /* DesignView.swift in Sources */,
 				6AA3DD842271470E009BFE94 /* CalendarVC.swift in Sources */,
-				6A6D3F7C222B57B4001ABB05 /* ImageService.swift in Sources */,
 				6A338B9E22A2FB28009E958F /* CoreDataModel.swift in Sources */,
 				6A95FE6322235E7900ED1A94 /* DataModel.xcdatamodeld in Sources */,
 				6A237D9A22DC84B9006291F2 /* MainVC.swift in Sources */,
 				6AFF58272226569E00DE7FE6 /* ButtonUIService.swift in Sources */,
-				6A99EFFB22EFA559005CAA64 /* ChartViewModel.swift in Sources */,
+				6A99EFFB22EFA559005CAA64 /* ReciveDataBackFromCoreData.swift in Sources */,
+				6AB649BC22FCD2A100652D59 /* ImageService.swift in Sources */,
+				6AB649BA22FCD29600652D59 /* CircleSelectedType.swift in Sources */,
 				6A5522CB2264F4120096D100 /* CardView.swift in Sources */,
 				6A05AEF922442A5800DF295B /* DateSarvice.swift in Sources */,
 				6A95FE4E22235DCD00ED1A94 /* AppDelegate.swift in Sources */,
@@ -505,6 +502,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A338B9F22A2FB28009E958F /* CoreDataModel.swift in Sources */,
+				6AB649B622FCCBCA00652D59 /* ColorPickerClass.swift in Sources */,
 				6AA78C2922A1FB8F0087DC4D /* TodayViewController.swift in Sources */,
 				6AA78C3722A1FBDB0087DC4D /* DataModel.xcdatamodeld in Sources */,
 				6A338BA022A2FD8C009E958F /* DateSarvice.swift in Sources */,

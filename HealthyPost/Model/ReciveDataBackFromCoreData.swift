@@ -12,14 +12,15 @@ import CoreData
 
 
 
-class ChartViewModel {
+class ReciveDataBackFromCoreData {
     var healthModelData = [HealthModel]()
     var coreDataModel = CoreDataStackClass()
 
-    static let getChartViewData = ChartViewModel()
+    static let getChartViewData = ReciveDataBackFromCoreData()
     
+    
+    //MARK: Update chartView by week day
 func updateDataByWeek(completionHandler:@escaping (ChartData?, Error?) -> Void){
-    let managedContext = coreDataModel.persistentContainer.viewContext
     let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")
     let calendar = Calendar.current
     let today = calendar.startOfDay(for: Date())
@@ -41,12 +42,12 @@ func updateDataByWeek(completionHandler:@escaping (ChartData?, Error?) -> Void){
     let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [frompredicate, topredicate])
     request.predicate = datePredicate
     do{
-        let result = try managedContext.fetch(request)
+        guard let result = try managedContexts?.fetch(request) else { return  }
         var aRed = Double()
         var agrean = Double()
         
-        var goodArray = [String]()
-        var badArray = [String]()
+//        var goodArray = [String]()
+//        var badArray = [String]()
         var index: Int = -1
         var chardtData = [BarChartDataEntry]()
         for mydate in week {
@@ -98,5 +99,42 @@ func updateDataByWeek(completionHandler:@escaping (ChartData?, Error?) -> Void){
         completionHandler(nil, error)
         print(error.description)
     }
+    }
+    
+    
+    
+    //fetch data form Core Data and display to UITableViewCell
+    func fetchDataFromCoreData(completonHandler:@escaping ([HealthModel]?, Error?) -> Void) {
+        var healthModel = [HealthModel]()
+        let request : NSFetchRequest<HealthModel> = HealthModel.fetchRequest()
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        // Get today's beginning & end
+        let dateFrom = calendar.startOfDay(for: Date())
+        let dateTo = calendar.date(byAdding: .day, value: 1, to: dateFrom)
+        let frompredicate = NSPredicate(format:"postTime > %@", dateFrom as CVarArg)
+        let toPredicate = NSPredicate(format: "postTime < %@", dateTo! as NSDate)
+        let datePredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [frompredicate, toPredicate])
+        request.predicate = datePredicate
+        
+        let sectionSortDescriptor = NSSortDescriptor(key: "postTime", ascending: true)
+        let sortDescriptors = [sectionSortDescriptor]
+        request.sortDescriptors = sortDescriptors
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        do {
+            healthModel = try (managedContexts?.fetch(request))!
+            for item in healthModel {
+                item.value(forKey: "userComment")
+                item.value(forKey: "postTime")
+                item.value(forKey: "selectedType")
+                item.value(forKey: "brandName")
+                item.value(forKey: "calorie")
+            }
+            completonHandler(healthModel,nil)
+        } catch let error as NSError {
+            completonHandler(nil,error)
+            print(error.description)
+        }
     }
 }
