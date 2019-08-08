@@ -20,7 +20,7 @@ class ReciveDataBackFromCoreData {
     
     
     //MARK: Update chartView by week day
-func updateDataByWeek(completionHandler:@escaping (ChartData?, Error?) -> Void){
+func updateChartDataByWeekDay(completionHandler:@escaping (ChartData?, Error?) -> Void){
     let request = NSFetchRequest<HealthModel>(entityName: "HealthModel")
     let calendar = Calendar.current
     let today = calendar.startOfDay(for: Date())

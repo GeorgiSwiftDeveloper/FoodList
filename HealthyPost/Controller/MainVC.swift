@@ -38,8 +38,10 @@ class MainVC: UIViewController, ChartViewDelegate {
         ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
             if let healthModelo = healthModel {
                      self.healthModelData = healthModelo
-                    self.contentViewHeightLayout.constant += 15
+                DispatchQueue.main.async {
+                    self.contentViewHeightLayout.constant += 45
                      self.notePostTableView.reloadData()
+                }
             }
         }
         fetchGoal()
@@ -57,29 +59,34 @@ class MainVC: UIViewController, ChartViewDelegate {
         ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
             if let healthModel = healthModel {
                 self.healthModelData = healthModel
-                    self.contentViewHeightLayout.constant += 15
+                DispatchQueue.main.async {
+                    self.contentViewHeightLayout.constant += 25
+                    self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
+                    self.view.layoutIfNeeded()
                     self.notePostTableView.reloadData()
+                }
             }
         }
         fetchGoal()
         getChartViewDataFromCoplitionHandler()
-        notePostTableView.reloadData()
         currentDateLabel.text = "\(DateService.service.crrentDateTime())"
         addlabel()
-        DispatchQueue.main.async {
-            self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
-            self.view.layoutIfNeeded()
-            
-        }
     }
     
     
     override  func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
         addlabel()
-        DispatchQueue.main.async{
-            self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
-            self.view.layoutIfNeeded()
+        ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
+            if let healthModel = healthModel {
+                self.healthModelData = healthModel
+                DispatchQueue.main.async {
+                    self.contentViewHeightLayout.constant += 25
+                    self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
+                    self.view.layoutIfNeeded()
+                    self.notePostTableView.reloadData()
+                }
+            }
         }
     }
     
@@ -98,8 +105,10 @@ class MainVC: UIViewController, ChartViewDelegate {
         }
     }
     
+    
+    //MARK:Get data for  Update ChartView data by week day
     func getChartViewDataFromCoplitionHandler() {
-        ReciveDataBackFromCoreData.getChartViewData.updateDataByWeek { (chartData, error) in
+        ReciveDataBackFromCoreData.getChartViewData.updateChartDataByWeekDay { (chartData, error) in
             if let chartData = chartData {
                 DispatchQueue.main.async {
                     self.chartView.data = chartData
@@ -109,7 +118,7 @@ class MainVC: UIViewController, ChartViewDelegate {
     }
     
     
-    
+    //MARK: Chart View design function 
     func chartViewDesingFunction() {
         chartView.delegate = self
         chartView.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 0)
@@ -176,7 +185,7 @@ class MainVC: UIViewController, ChartViewDelegate {
     }
     
     
-    
+    //MARK: Delete and Edite UITableView [Indexpath.row]
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let editAction =  UIContextualAction(style: .normal, title: "Edit", handler: { (action,view,completionHandler ) in
@@ -210,7 +219,21 @@ class MainVC: UIViewController, ChartViewDelegate {
         return confrigation
     }
     
+    //MARK: Delete data from Core Data NSManagetObjectContext
+    func removePostRow(atIndexPath indexPath: IndexPath) {
+        managedContexts?.delete(healthModelData[indexPath.row])
+        do{
+            try managedContexts?.save()
+        }catch {
+            print("Could not remove post \(error.localizedDescription)")
+        }
+    }
     
+    
+    
+    
+    
+
     func fetchGoal() {
          let request : NSFetchRequest<Goal> = Goal.fetchRequest()
         do {
@@ -225,14 +248,7 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     
 
-    func removePostRow(atIndexPath indexPath: IndexPath) {
-        managedContexts?.delete(healthModelData[indexPath.row])
-        do{
-            try managedContexts?.save()
-        }catch {
-            print("Could not remove post \(error.localizedDescription)")
-        }
-    }
+   
     
 
 }
