@@ -60,7 +60,7 @@ class MainVC: UIViewController, ChartViewDelegate {
             if let healthModel = healthModel {
                 self.healthModelData = healthModel
                 DispatchQueue.main.async {
-                    self.contentViewHeightLayout.constant += 25
+                    self.contentViewHeightLayout.constant += 45
                     self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
                     self.view.layoutIfNeeded()
                     self.notePostTableView.reloadData()
@@ -81,7 +81,7 @@ class MainVC: UIViewController, ChartViewDelegate {
             if let healthModel = healthModel {
                 self.healthModelData = healthModel
                 DispatchQueue.main.async {
-                    self.contentViewHeightLayout.constant += 25
+                    self.contentViewHeightLayout.constant += 45
                     self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
                     self.view.layoutIfNeeded()
                     self.notePostTableView.reloadData()
@@ -99,7 +99,7 @@ class MainVC: UIViewController, ChartViewDelegate {
             label.font = UIFont(name: "Georgia", size: 20)
             label.font = UIFont.boldSystemFont(ofSize: 25)
             label.isHidden = false
-            view.addSubview(label)
+            contentView.addSubview(label)
         }else{
             label.isHidden = true
         }
@@ -177,10 +177,11 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateNoteVC" {
+
             let destVC = segue.destination as! CreateNoteVC
-            
+
             destVC.healthEditReciver = sender as? HealthModel
-            
+
         }
     }
     

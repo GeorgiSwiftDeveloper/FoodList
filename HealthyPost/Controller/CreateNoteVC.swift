@@ -180,6 +180,9 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if descText.text != "" && postType != nil {
             self.saveFoodNote()
             self.dismiss(animated: true, completion: nil)
+        }else{
+            let alert = AlertService.alert.alert(message: "Please make sure that your Description name and Selected type was selected")
+            present(alert, animated: true, completion: nil)
         }
     }
     @IBAction func cancelBtnAction(_ sender: Any) {
