@@ -35,20 +35,20 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
-            if let healthModelo = healthModel {
-                     self.healthModelData = healthModelo
-                DispatchQueue.main.async {
-                    self.contentViewHeightLayout.constant += 45
-                     self.notePostTableView.reloadData()
-                }
-            }
-        }
-        fetchGoal()
-        getChartViewDataFromCoplitionHandler()
-        chartViewDesingFunction()
-        notePostTableView.reloadData()
-        addlabel()
+//        ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
+//            if let healthModelo = healthModel {
+//                     self.healthModelData = healthModelo
+//                DispatchQueue.main.async {
+//                    self.contentViewHeightLayout.constant += 45
+//                     self.notePostTableView.reloadData()
+//                }
+//            }
+//        }
+//        fetchGoal()
+//        getChartViewDataFromCoplitionHandler()
+//        chartViewDesingFunction()
+//        notePostTableView.reloadData()
+//        addlabel()
     }
     
     
@@ -57,17 +57,22 @@ class MainVC: UIViewController, ChartViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
+            if error != nil  {
+                print(error?.localizedDescription as Any)
+                return
+            }
             if let healthModel = healthModel {
                 self.healthModelData = healthModel
                 DispatchQueue.main.async {
                     self.contentViewHeightLayout.constant += 45
-                    self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
-                    self.view.layoutIfNeeded()
+                    self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height + 15
+//                    self.view.layoutIfNeeded()
                     self.notePostTableView.reloadData()
                 }
             }
         }
         fetchGoal()
+        chartViewDesingFunction()
         getChartViewDataFromCoplitionHandler()
         currentDateLabel.text = "\(DateService.service.crrentDateTime())"
         addlabel()
@@ -76,18 +81,19 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override  func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
-        addlabel()
         ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
             if let healthModel = healthModel {
                 self.healthModelData = healthModel
+                
                 DispatchQueue.main.async {
                     self.contentViewHeightLayout.constant += 45
                     self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
-                    self.view.layoutIfNeeded()
+//                    self.view.layoutIfNeeded()
                     self.notePostTableView.reloadData()
                 }
             }
         }
+        addlabel()
     }
     
     
