@@ -8,6 +8,10 @@
 import UIKit
 
 
+protocol commentDelegate {
+    func postOptionsTapped(post: HealthModel)
+}
+
     class NoteTableViewCell: UITableViewCell {
         
         
@@ -16,6 +20,7 @@ import UIKit
         @IBOutlet weak var selectedFoodType: UIView!
         @IBOutlet weak var postDate: UILabel!
         @IBOutlet weak var calorieLbl: UILabel!
+        @IBOutlet weak var postOptionImage: UIImageView!
         
         func configureCell(post: HealthModel) {
             brandNameLbl.text = post.brandName
