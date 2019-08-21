@@ -10,7 +10,7 @@ import Foundation
 import  UIKit
 
 
-class ButtonRoundService: UIButton {
+class ButtonRoundService: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()

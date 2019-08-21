@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate {
 
@@ -16,51 +17,19 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userLocationTextField: UITextField!
     
+    var coreDataModel = CoreDataStackClass()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-//        if let data = UserDefaults.standard.object(forKey: "image")  {
-//            userAddImage.image = UIImage(data: data as! Data)
-//        }
-//
-//        if let userName = UserDefaults.standard.object(forKey: "userName")  {
-//            userNameTextField.text = userName as? String
-//        }
-//        if let userLocation = UserDefaults.standard.object(forKey: "location")  {
-//            userLocationTextField.text = userLocation as? String
-//        }
-//
+
+
          let imageTapp = UITapGestureRecognizer(target: self, action: #selector(userImageTapped))
          self.userAddImage.addGestureRecognizer(imageTapp)
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//        UserDefaults.standard.set(userNameTextField.text, forKey: "userName")
-//         UserDefaults.standard.set(userLocationTextField.text, forKey: "location")
-//        return true
-//    }
-//
-//    @objc func keyboardWillShow(notification: NSNotification) {
-//        if ((notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue) != nil {
-//            if self.view.frame.origin.y == 0 {
-//                self.view.frame.origin.y -= 230
-//            }
-//        }
-//    }
-//
-//    @objc func keyboardWillHide(notification: NSNotification) {
-//        if self.view.frame.origin.y != 0 {
-//            self.view.frame.origin.y = 0
-//        }
-//    }
-//
-    
-//
-//
+
+ 
     @objc func userImageTapped(_ sender: UIGestureRecognizer){
         let imagepickerController = UIImagePickerController()
         imagepickerController.delegate = self
@@ -94,6 +63,22 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
             let dataImage = selectedImage?.pngData()
             UserDefaults.standard.set(dataImage, forKey: "image")
             picker.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
+    func saveProffileData() {
+        let managedContext = coreDataModel.persistentContainer.viewContext
+        let entity =  NSEntityDescription.entity(forEntityName: "ProffileData", in:managedContext)
+        let newUser = NSManagedObject(entity: entity!, insertInto: managedContext)
+        newUser.setValue(userAddImage.image?.pngData(), forKey: "userImage")
+        newUser.setValue(userNameTextField.text, forKey: "userName")
+        newUser.setValue(userEmail.text, forKey: "userEmail")
+        newUser.setValue(userLocationTextField.text, forKey: "userLocation")
+        do {
+            try managedContext.save()
+        } catch  {
+            print("can't save proffile data")
         }
     }
 
