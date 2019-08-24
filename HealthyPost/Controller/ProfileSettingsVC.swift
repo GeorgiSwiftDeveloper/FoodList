@@ -17,17 +17,28 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userLocationTextField: UITextField!
     
-    var coreDataModel = CoreDataStackClass()
+    var userImage = UIImage()
+    var userNameText = String()
+    var userEmailText = String()
     
+    
+    
+  private  var coreDataModel = CoreDataStackClass()
+    var userProffileData =  [ProffileData]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchUserProffileData()
 
          let imageTapp = UITapGestureRecognizer(target: self, action: #selector(userImageTapped))
          self.userAddImage.addGestureRecognizer(imageTapp)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+    }
 
  
     @objc func userImageTapped(_ sender: UIGestureRecognizer){
@@ -81,10 +92,28 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
             print("can't save proffile data")
         }
     }
+    
+    func fetchUserProffileData(){
+        let request: NSFetchRequest<ProffileData> = ProffileData.fetchRequest()
+        do {
+            userProffileData = try (managedContexts?.fetch(request))!
+            for proffile in userProffileData {
+               userAddImage.image = UIImage(data: (proffile.userImage)! as Data)
+                userNameTextField.text = proffile.userName as? String
+                userEmail.text = proffile.userEmail as? String
+                userLocationTextField.text = proffile.userLocation as? String
+            }
+        }catch{
+             print(error.localizedDescription)
+        }
+    }
 
     @IBAction func backBtnPress(_ sender: Any) {
     dismiss(animated: true, completion: nil)
     }
     
     
+    @IBAction func saveBtnTapped(_ sender: Any) {
+        saveProffileData()
+    }
 }
