@@ -1133,7 +1133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tI2-Ou-F8e">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="631"/>
                                 <connections>
                                     <outlet property="delegate" destination="zcI-bm-N9i" id="zfM-vZ-kEo"/>
                                 </connections>
@@ -1152,26 +1152,39 @@
                                     <action selector="shareLocationBtn:" destination="zcI-bm-N9i" eventType="touchUpInside" id="2TA-ZW-MbL"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="arc-3M-LPV">
+                                <rect key="frame" x="0.0" y="631" width="414" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="PXi-dj-yAA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tI2-Ou-F8e" firstAttribute="leading" secondItem="SUB-cR-naC" secondAttribute="leading" id="CT8-8w-b4c"/>
+                            <constraint firstItem="tI2-Ou-F8e" firstAttribute="trailing" secondItem="SUB-cR-naC" secondAttribute="trailing" id="Jbv-eF-d4Y"/>
+                            <constraint firstItem="arc-3M-LPV" firstAttribute="top" secondItem="tI2-Ou-F8e" secondAttribute="bottom" id="JlT-2g-f1w"/>
                             <constraint firstAttribute="bottom" secondItem="86H-bD-pa0" secondAttribute="bottom" id="PfI-W2-PBu"/>
-                            <constraint firstItem="SUB-cR-naC" firstAttribute="bottom" secondItem="tI2-Ou-F8e" secondAttribute="bottom" id="doO-Zk-ub3"/>
+                            <constraint firstItem="tI2-Ou-F8e" firstAttribute="leading" secondItem="SUB-cR-naC" secondAttribute="leading" id="h3R-ht-j3X"/>
                             <constraint firstItem="86H-bD-pa0" firstAttribute="trailing" secondItem="SUB-cR-naC" secondAttribute="trailing" id="hcX-oP-ygX"/>
+                            <constraint firstItem="tI2-Ou-F8e" firstAttribute="top" secondItem="qk4-HM-XiI" secondAttribute="top" id="j6O-Ad-5XB"/>
+                            <constraint firstItem="arc-3M-LPV" firstAttribute="leading" secondItem="SUB-cR-naC" secondAttribute="leading" id="qM2-lu-B3K"/>
+                            <constraint firstItem="86H-bD-pa0" firstAttribute="top" secondItem="arc-3M-LPV" secondAttribute="bottom" id="uIg-x7-WFg"/>
                             <constraint firstItem="86H-bD-pa0" firstAttribute="leading" secondItem="SUB-cR-naC" secondAttribute="leading" id="wB7-vE-iLX"/>
-                            <constraint firstItem="tI2-Ou-F8e" firstAttribute="trailing" secondItem="SUB-cR-naC" secondAttribute="trailing" id="x8k-Mi-gxN"/>
-                            <constraint firstItem="tI2-Ou-F8e" firstAttribute="top" secondItem="qk4-HM-XiI" secondAttribute="top" id="yV4-kQ-xVS"/>
+                            <constraint firstItem="SUB-cR-naC" firstAttribute="trailing" secondItem="arc-3M-LPV" secondAttribute="trailing" id="wpE-nU-Acd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SUB-cR-naC"/>
                     </view>
                     <connections>
+                        <outlet property="locationLbl" destination="arc-3M-LPV" id="RcA-aa-vO1"/>
                         <outlet property="mapView" destination="tI2-Ou-F8e" id="iih-qU-0y9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUi-Rh-cuu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3665" y="-1534"/>
+            <point key="canvasLocation" x="3663.7681159420295" y="-1534.2391304347827"/>
         </scene>
         <!--Log InVC-->
         <scene sceneID="Vvo-wD-gGv">
