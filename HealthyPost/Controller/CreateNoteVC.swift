@@ -34,14 +34,15 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         segmentedControl.insertSegment(withTitle: "YES", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "NO", at: 1, animated: true)
         setUIforEdit()
-        saveFoodNote()
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
+//        saveFoodNote()
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//        view.addGestureRecognizer(tap)
     }
-    @objc func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
+    
+//    @objc func dismissKeyboard() {
+//        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+//        view.endEditing(true)
+//    }
     
     
     func setUIforEdit() {
@@ -212,7 +213,7 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             self.healthEditReciver?.selectedType = postType?.rawValue
             self.healthEditReciver?.calorie = calorieTxt.text
             save()
-            self.dismiss(animated: true, completion: nil)
+//            self.dismiss(animated: true, completion: nil)
         }
     }
     

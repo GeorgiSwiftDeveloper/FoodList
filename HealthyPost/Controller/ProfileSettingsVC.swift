@@ -9,7 +9,8 @@
 import UIKit
 import CoreData
 
-class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate {
+class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate, UserLocationDelegate {
+    
 
 
     @IBOutlet weak var userAddImage: UIImageView!
@@ -35,11 +36,14 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
          self.userAddImage.addGestureRecognizer(imageTapp)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        
+//    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
-
  
     @objc func userImageTapped(_ sender: UIGestureRecognizer){
         let imagepickerController = UIImagePickerController()
@@ -107,7 +111,27 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
              print(error.localizedDescription)
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "userLocation" {
+            
+            let destVC = segue.destination as! ShareUserLocation
+            
+            destVC.locationDelegate = self
+            
+        }
+    }
+    
+    
+    func getUserLocation(location: String) {
+        userLocationTextField.text = location
+    }
+    
+    
+    @IBAction func mapViewBtn(_ sender: Any) {
+         self.performSegue(withIdentifier: "userLocation", sender: nil)
+    }
+    
     @IBAction func backBtnPress(_ sender: Any) {
     dismiss(animated: true, completion: nil)
     }
@@ -115,5 +139,6 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
     
     @IBAction func saveBtnTapped(_ sender: Any) {
         saveProffileData()
+        dismiss(animated: true, completion: nil)
     }
 }
