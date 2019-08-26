@@ -10,41 +10,29 @@ import UIKit
 import CoreData
 
 class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate, UserLocationDelegate {
-    
-
 
     @IBOutlet weak var userAddImage: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userEmail: UITextField!
     @IBOutlet weak var userLocationTextField: UITextField!
     
-    var userImage = UIImage()
-    var userNameText = String()
-    var userEmailText = String()
-    
-    
-    
-  private  var coreDataModel = CoreDataStackClass()
-    var userProffileData =  [ProffileData]()
+   private  var coreDataModel = CoreDataStackClass()
+   var userProffileData =  [ProffileData]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchUserProffileData()
-
+         fetchUserProffileData()
          let imageTapp = UITapGestureRecognizer(target: self, action: #selector(userImageTapped))
          self.userAddImage.addGestureRecognizer(imageTapp)
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        
-//    }
+    //MARK: TextField Delegate for hide the keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
- 
+    //MARK: Access to the Camera and Libeary
     @objc func userImageTapped(_ sender: UIGestureRecognizer){
         let imagepickerController = UIImagePickerController()
         imagepickerController.delegate = self
@@ -103,9 +91,9 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
             userProffileData = try (managedContexts?.fetch(request))!
             for proffile in userProffileData {
                userAddImage.image = UIImage(data: (proffile.userImage)! as Data)
-                userNameTextField.text = proffile.userName as? String
-                userEmail.text = proffile.userEmail as? String
-                userLocationTextField.text = proffile.userLocation as? String
+                userNameTextField.text = proffile.userName
+                userEmail.text = proffile.userEmail
+                userLocationTextField.text = proffile.userLocation
             }
         }catch{
              print(error.localizedDescription)
@@ -114,20 +102,18 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userLocation" {
-            
             let destVC = segue.destination as! ShareUserLocation
-            
             destVC.locationDelegate = self
             
         }
     }
     
-    
+    //MARK: Return delegate BACK
     func getUserLocation(location: String) {
         userLocationTextField.text = location
     }
     
-    
+    //MARK: Go to the ShareLocationVC
     @IBAction func mapViewBtn(_ sender: Any) {
          self.performSegue(withIdentifier: "userLocation", sender: nil)
     }

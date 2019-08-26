@@ -12,13 +12,12 @@ import CoreData
 import FSCalendar
 import Charts
 
-    let managedContexts = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+let managedContexts = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 class MainVC: UIViewController, ChartViewDelegate {
 
-    
-    
      var label = UILabel()
     
+    @IBOutlet weak var tableViewCard: CardView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var chartView: BarChartView!
     @IBOutlet weak var notePostTableView: UITableView!
@@ -30,57 +29,44 @@ class MainVC: UIViewController, ChartViewDelegate {
      var healthModelData = [HealthModel]()
      var userGoal   = [Goal]()
     
-     var coreDataModel = CoreDataStackClass()
-    
+     private var coreDataModel = CoreDataStackClass()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    
-
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
-            if error != nil  {
-                print(error?.localizedDescription as Any)
-                return
-            }
             if let healthModel = healthModel {
                 self.healthModelData = healthModel
-                DispatchQueue.main.async {
-                    self.contentViewHeightLayout.constant += 45
-                    self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height + 15
-                    self.notePostTableView.reloadData()
-                }
+                self.chartViewDesingFunction()
+                self.getChartViewDataFromCoplitionHandler()
+                self.addlabel()
+                self.notePostTableView.reloadData()
+                self.contentViewHeightLayout.constant  = self.contentViewHeightLayout.constant + self.notePostTableView.contentSize.height
             }
         }
-        fetchGoal()
-        chartViewDesingFunction()
-        getChartViewDataFromCoplitionHandler()
-        currentDateLabel.text = "\(DateService.service.crrentDateTime())"
-        addlabel()
     }
-    
-    
+
     override  func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
         ReciveDataBackFromCoreData.getChartViewData.fetchDataFromCoreData { (healthModel, error) in
             if let healthModel = healthModel {
                 self.healthModelData = healthModel
-                
-                DispatchQueue.main.async {
-                    self.contentViewHeightLayout.constant += 45
-                    self.cardViewHeightLayout.constant = self.notePostTableView.contentSize.height
-                    self.notePostTableView.reloadData()
-                }
+                self.chartViewDesingFunction()
+                self.getChartViewDataFromCoplitionHandler()
+                self.addlabel()
+                self.notePostTableView.reloadData()
+            }
+            if self.healthModelData.count == 0  {
+                self.cardViewHeightLayout.constant = 0
+            }else {
+                self.contentViewHeightLayout.constant  = self.contentViewHeightLayout.constant + 50
+                self.cardViewHeightLayout.constant =   CGFloat(self.healthModelData.count * 65)
             }
         }
-        addlabel()
     }
     
     
+
     func addlabel() {
         if healthModelData.count == 0 {
             label.text = "Add your daily post here"
@@ -112,7 +98,7 @@ class MainVC: UIViewController, ChartViewDelegate {
     func chartViewDesingFunction() {
         chartView.delegate = self
         chartView.setExtraOffsets(left: 0, top: 0, right: 0, bottom: 0)
-        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: DateService.service.weekDays.shortWeekdaySymbols)
+        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: DateService.service.weekDays.weekdaySymbols)
         chartView.xAxis.granularity = 1.0
         chartView.doubleTapToZoomEnabled = false
         
@@ -120,7 +106,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         let xAxis: XAxis? = chartView.xAxis
         xAxis?.labelPosition = .bottom
         xAxis?.labelTextColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
-        xAxis?.labelFont = UIFont(name: "Helvetica", size: 12)!
+        xAxis?.labelFont = UIFont(name: "Helvetica", size: 9)!
         xAxis?.drawGridLinesEnabled = false
         chartView.rightAxis.drawLabelsEnabled = false
         chartView.leftAxis.drawLabelsEnabled = false
@@ -156,9 +142,7 @@ class MainVC: UIViewController, ChartViewDelegate {
         self.present(storyboard, animated: true, completion: nil)
     }
     
-    
-    
-    
+
     @IBAction func addNoteBtnAction(_ sender: Any) {
         guard let storyboard = storyboard?.instantiateViewController(withIdentifier: "CreateNoteVC") else {return}
         self.present(storyboard, animated: true, completion: nil)
@@ -167,9 +151,7 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "CreateNote" {
-
             let destVC = segue.destination as! CreateNoteVC
-
             destVC.healthEditReciver = sender as? HealthModel
 
         }
@@ -178,7 +160,6 @@ class MainVC: UIViewController, ChartViewDelegate {
     
     //MARK: Delete and Edite UITableView [Indexpath.row]
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
         let editAction =  UIContextualAction(style: .normal, title: "Edit", handler: { (action,view,completionHandler ) in
             let healthPost = self.healthModelData[indexPath.row]
             self.performSegue(withIdentifier: "CreateNote", sender: healthPost)

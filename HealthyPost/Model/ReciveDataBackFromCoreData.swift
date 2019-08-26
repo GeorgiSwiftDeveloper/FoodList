@@ -33,9 +33,6 @@ func updateChartDataByWeekDay(completionHandler:@escaping (ChartData?, Error?) -
     let week =  days.map({ (DateelementOfCollection) -> Date in
         return DateelementOfCollection
     })
-    for i in week  {
-        print(i)
-    }
     
     let frompredicate = NSPredicate(format: "postTime > %@", week[0]  as CVarArg)
     let topredicate = NSPredicate(format: "postTime  <> %@",  week[6] as CVarArg )
@@ -88,7 +85,7 @@ func updateChartDataByWeekDay(completionHandler:@escaping (ChartData?, Error?) -
         set.valueColors = colors
         
         let data = BarChartData(dataSet: set)
-        data.setValueFont(.systemFont(ofSize: 10))
+        data.setValueFont(.systemFont(ofSize: 5))
         
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 1

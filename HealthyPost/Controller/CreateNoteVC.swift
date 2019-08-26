@@ -10,8 +10,6 @@ import UIKit
 import CoreData
 
 class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
-   
-    
     
     let descText = UITextField()
     let commentText = UITextField()
@@ -20,21 +18,20 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let segmentedControl = UISegmentedControl()
     
     
-    var coreDataModel = CoreDataStackClass()
+    private   var coreDataModel = CoreDataStackClass()
     var postType: PostType? = nil
     var selectedTime = Date()
     var healthEditReciver: HealthModel?
     
     
     
-    let sections = ["Descriiption", "Comment(Optional)", "Calorie(Optional)","Time","Is it Healthy ? "]
+   private let sections = ["Descriiption", "Comment(Optional)", "Calorie(Optional)","Time","Is it Healthy ? "]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         segmentedControl.insertSegment(withTitle: "YES", at: 0, animated: true)
         segmentedControl.insertSegment(withTitle: "NO", at: 1, animated: true)
         setUIforEdit()
-//        saveFoodNote()
 //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
 //        view.addGestureRecognizer(tap)
     }
@@ -110,7 +107,6 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             descText.font = UIFont.systemFont(ofSize: 15)
             descText.delegate = self
             descText.textAlignment = .center
-            //cell.contentView.addSubview(tf)
             cell?.addSubview(descText)
             
             break
@@ -121,7 +117,6 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             commentText.font = UIFont.systemFont(ofSize: 15)
             commentText.delegate = self
             commentText.textAlignment = .center
-            //cell.contentView.addSubview(tf)
             cell?.addSubview(commentText)
 
             break
@@ -134,7 +129,6 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             calorieTxt.delegate = self
             calorieTxt.keyboardType = UIKeyboardType.numberPad
             calorieTxt.textAlignment = .center
-            //cell.contentView.addSubview(tf)
             cell?.addSubview(calorieTxt)
 
             break
@@ -213,7 +207,6 @@ class CreateNoteVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             self.healthEditReciver?.selectedType = postType?.rawValue
             self.healthEditReciver?.calorie = calorieTxt.text
             save()
-//            self.dismiss(animated: true, completion: nil)
         }
     }
     

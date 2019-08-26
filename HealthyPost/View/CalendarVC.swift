@@ -50,13 +50,10 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
     
   
     
-    
-  
-    
-    @IBAction func goBackBtn(_ sender: Any) {
+   @IBAction func goBackBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    
+  
     @IBAction func createNoteBtn(_ sender: Any) {
         performSegue(withIdentifier: "CreateNoteVC", sender: self)
     }
@@ -123,9 +120,7 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return healthModel.count
-        
     }
     
     
@@ -142,7 +137,6 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
             removePostRow(atIndexPath: indexPath)
             healthModel.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
-
         }
     }
     
@@ -157,7 +151,6 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
         components.minute = 59
         components.second = 59
         let endDate = calendar!.date(from: components)
-        
         return NSPredicate(format: "postTime >= %@ AND postTime =< %@", argumentArray: [startDate!, endDate!])
     }
     
