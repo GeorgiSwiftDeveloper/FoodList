@@ -731,7 +731,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLz-IP-r09">
-                                                    <rect key="frame" x="5" y="5" width="404" height="55"/>
+                                                    <rect key="frame" x="5" y="5" width="726" height="55"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibv-fq-0zN" customClass="DesignView" customModule="HealthyPost" customModuleProvider="target">
                                                             <rect key="frame" x="10" y="10" width="7" height="35"/>
@@ -792,7 +792,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calorie" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lql-tK-Zla">
-                                                    <rect key="frame" x="357.66666666666669" y="15" width="41.333333333333314" height="35"/>
+                                                    <rect key="frame" x="679.66666666666663" y="15" width="41.333333333333371" height="35"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1083,6 +1083,7 @@
                                 </state>
                                 <connections>
                                     <action selector="shareLocationBtn:" destination="zcI-bm-N9i" eventType="touchUpInside" id="2TA-ZW-MbL"/>
+                                    <segue destination="Em2-bU-4Y8" kind="unwind" unwindAction="didUnwindFromLocationVC:" id="qbP-Xg-5dR"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="arc-3M-LPV">
@@ -1117,6 +1118,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUi-Rh-cuu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Em2-bU-4Y8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3663.7681159420295" y="-1534.2391304347827"/>
         </scene>
@@ -1131,7 +1133,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeimage" translatesAutoresizingMaskIntoConstraints="NO" id="8W5-Te-cic">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FooDZilla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-wb-3uF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FooDZilla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="25" translatesAutoresizingMaskIntoConstraints="NO" id="4sQ-wb-3uF">
                                 <rect key="frame" x="51" y="50" width="312" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="cb7-rU-vcD"/>
@@ -1226,7 +1228,7 @@
         <image name="smackProfileIcon" width="192" height="192"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0wU-jY-yVW"/>
+        <segue reference="MJo-GY-Q0C"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

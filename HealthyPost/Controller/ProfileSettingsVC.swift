@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate, UserLocationDelegate {
+class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var userAddImage: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
@@ -103,15 +103,24 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userLocation" {
             let destVC = segue.destination as! ShareUserLocation
-            destVC.locationDelegate = self
+//            destVC.locationDelegate = self
             
         }
     }
     
     //MARK: Return delegate BACK
-    func getUserLocation(location: String) {
-        userLocationTextField.text = location
+//    func getUserLocation(location: String) {
+//        userLocationTextField.text = location
+//    }
+    
+    
+    //MARK: Passing data use Unwind segue
+    @IBAction func didUnwindFromLocationVC(_ sender: UIStoryboardSegue) {
+        guard let locationVC = sender.source as? ShareUserLocation else {return}
+        userLocationTextField.text = locationVC.locationLbl.text
+        saveProffileData()
     }
+    
     
     //MARK: Go to the ShareLocationVC
     @IBAction func mapViewBtn(_ sender: Any) {
