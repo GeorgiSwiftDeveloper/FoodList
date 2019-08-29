@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate, UserLocationDelegate {
+class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate,  UserLocationDelegate{
 
     @IBOutlet weak var userAddImage: UIImageView!
     @IBOutlet weak var userNameTextField: UITextField!
