@@ -15,10 +15,7 @@ import Charts
 let managedContexts = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 class MainVC: UIViewController, ChartViewDelegate {
 
-     var label = UILabel()
-    
-    
-
+   private var addLabelIfPostsAreEmpty = UILabel()
     
     @IBOutlet weak var tableViewCard: CardView!
     @IBOutlet weak var contentView: UIView!
@@ -72,15 +69,15 @@ class MainVC: UIViewController, ChartViewDelegate {
 
     func addlabel() {
         if healthModelData.count == 0 {
-            label.text = "Add your daily post here"
-            label.frame = CGRect(x: 70, y: 300, width: 300, height: 60)
-            label.textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
-            label.font = UIFont(name: "Georgia", size: 20)
-            label.font = UIFont.boldSystemFont(ofSize: 25)
-            label.isHidden = false
-            contentView.addSubview(label)
+            addLabelIfPostsAreEmpty.text = "Add your daily post here"
+            addLabelIfPostsAreEmpty.frame = CGRect(x: 70, y: 300, width: 300, height: 60)
+            addLabelIfPostsAreEmpty.textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+            addLabelIfPostsAreEmpty.font = UIFont(name: "Georgia", size: 20)
+            addLabelIfPostsAreEmpty.font = UIFont.boldSystemFont(ofSize: 25)
+            addLabelIfPostsAreEmpty.isHidden = false
+            contentView.addSubview(addLabelIfPostsAreEmpty)
         }else{
-            label.isHidden = true
+            addLabelIfPostsAreEmpty.isHidden = true
         }
     }
     
