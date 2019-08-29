@@ -17,6 +17,11 @@ class MainVC: UIViewController, ChartViewDelegate {
 
      var label = UILabel()
     
+    
+    func sayFunction (){
+        
+    }
+    
     @IBOutlet weak var tableViewCard: CardView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var chartView: BarChartView!
