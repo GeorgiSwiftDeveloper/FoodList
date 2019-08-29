@@ -68,15 +68,15 @@ class MainVC: UIViewController, ChartViewDelegate {
 
     func addlabel() {
         if healthModelData.count == 0 {
-            emtyLabel.text = "Add your daily post here"
-            emtyLabel.frame = CGRect(x: 70, y: 300, width: 300, height: 60)
-            emtyLabel.textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
-            emtyLabel.font = UIFont(name: "Georgia", size: 20)
-            emtyLabel.font = UIFont.boldSystemFont(ofSize: 25)
-            emtyLabel.isHidden = false
-            contentView.addSubview(emtyLabel)
+            emtyLabeltext.text = "Add your daily post here"
+            emtyLabeltext.frame = CGRect(x: 70, y: 300, width: 300, height: 60)
+            emtyLabeltext.textColor = #colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)
+            emtyLabeltext.font = UIFont(name: "Georgia", size: 20)
+            emtyLabeltext.font = UIFont.boldSystemFont(ofSize: 25)
+            emtyLabeltext.isHidden = false
+            contentView.addSubview(emtyLabeltext)
         }else{
-            emtyLabel.isHidden = true
+            emtyLabeltext.isHidden = true
         }
     }
     
