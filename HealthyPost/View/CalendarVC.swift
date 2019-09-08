@@ -17,6 +17,7 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarTableView: UITableView!
     @IBOutlet weak var todayDateLbl: UILabel!
+    @IBOutlet weak var viewHeight: NSLayoutConstraint!
     
     var healthModel = [HealthModel]()
     var coreDataModel = CoreDataStackClass()
@@ -35,7 +36,13 @@ class CalendarVC: UIViewController,UIGestureRecognizerDelegate,FSCalendarDelegat
         self.calendarTableView.reloadData()
     }
 
-    
+//    func detectScreenSize() {
+//        let screenSize: CGRect = UIScreen.main.bounds
+//        if screenSize.width == 320 {
+//            self.viewHeight.constant = CGFloat(20.0)
+//            print("asadasd,asld,a l a,sdl ad")
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

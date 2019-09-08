@@ -14,7 +14,7 @@ import Charts
 
 let managedContexts = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
 class MainVC: UIViewController, ChartViewDelegate {
-
+//
    private var addLabelIfPostsAreEmpty = UILabel()
     
     @IBOutlet weak var tableViewCard: CardView!

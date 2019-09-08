@@ -100,6 +100,8 @@ class ProfileSettingsVC: UIViewController,UIImagePickerControllerDelegate,UINavi
         }
     }
     
+    
+    //MARK: Prepare for location delegate 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "userLocation" {
             let destVC = segue.destination as! ShareUserLocation
