@@ -73,7 +73,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             self.userImage.clipsToBounds = true
             self.userImage.contentMode = .scaleAspectFill
             cell.addSubview(userImage)
-            ////
+            ////////
             userName.frame = CGRect(x: 90, y: 10, width: 270, height: 30)
             userName.placeholder = "User profile name"
             userName.textAlignment = .center
